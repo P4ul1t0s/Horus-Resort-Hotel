@@ -1,0 +1,161 @@
+/*===================== GERAL ====================*/
+
+:root{
+    font-size: 62.5%; /*1rem = 10px*/
+    /*font size do root agora vale 10px*/
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    
+}
+
+.hotel-name a{
+    font-family: 'Macondo', cursive;
+    font-style: italic;
+}
+
+#body{ /*id por causa do boostrap*/
+    font-size: 1.6rem;
+    background-color: #FFF;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+
+/*===============INITIAL HEADER=======================*/
+
+#initial-header{
+    background-color: #FFE100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-inline: 10%;
+    padding-block: .5rem;
+}
+
+#initial-header-navigation ul{
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    gap:  2rem;
+}
+
+#initial-header-navigation a{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#initial-header img{
+    height: 8rem;
+    width: auto;
+}
+
+#initial-header .hotel-name a {
+    font-size: 4rem;
+    font-weight: 700;
+}
+/*======================= SECTION HOME =========================*/
+#section-home{
+    position: relative;
+    height: 80rem;
+    padding-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+#section-home video{
+    width: 100%;
+
+    position: absolute;
+}
+
+/*formulario*/
+#nav-form{
+    background-color: #DB302A;
+    border-radius: .5rem;
+
+    margin-inline: auto;
+    margin-top: 70rem;
+    width: 50%;
+    padding-block: 1rem;
+
+    position: sticky;
+    top: 1rem;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#nav-form form{
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+#nav-form input{
+    padding-inline: .7rem;
+    padding-block: .2rem;
+
+    font-size: 1.8rem;
+}
+
+#nav-form label{
+    color: #D8F3FE;
+}
+
+#nav-form a:first-child{
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 3.5rem;
+    text-align: center;
+    color: #D8F3FE;
+}
+
+#nav-form a:last-child{
+    font-size: 2rem;
+    font-weight: 700;
+
+    background-color: #D8F3FE;
+    border-radius: .5rem;
+
+    
+    margin-left: 1.5rem;
+    padding-inline: .7rem;
+    padding-block: .2rem;
+}
+
+/*==================== SECTION SERVICES=======================*/
+
+#section-services{ 
+    background-color: #008DDB;
+    height: 80rem;
+}
+
+.section-subtitle{
+    text-align: center;
+    float: left;
+}
+
+.cards-services{
+    float: right;
+    height: 100%;
+    border: 1px solid red;
+    width: 70%;
+}
+
+
