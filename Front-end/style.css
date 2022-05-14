@@ -33,11 +33,10 @@ a{
 }
 
 main{
-    border: 2px dashed rgb(107, 53, 253);
     height: 100%;
     position:relative
-    
 }
+
 
 
 /*=============== HEADER =======================*/
@@ -75,7 +74,11 @@ main{
     font-size: 4rem;
     font-weight: 700;
 }
+
+
+
 /*======================= SECTION HOME =========================*/
+
 #section-home{
     background-color: antiquewhite;
     padding-block: 8rem;
@@ -90,7 +93,6 @@ main{
 
 .absolute-form-box{
     position: absolute;
-    border: 5px solid yellow;
     
     padding-top: 73rem;
     width: 100%;
@@ -110,7 +112,7 @@ main{
     justify-content: space-around;
 
     position: sticky;
-    top: 0rem;
+    top: 2rem;
     transform: (80%);
 }
 
@@ -151,10 +153,56 @@ main{
     padding-block: .2rem;
 }
 
-/*==================== SECTION SERVICES=======================*/
 
-#section-services{ 
-    background-color: #008DDB;
-    height: 100rem;
+
+/*==================== SECTION QUARTOS=======================*/
+
+
+#section-quartos{
+    background-color: rgb(47, 74, 224);
+
+    padding-block: 8rem;
+    padding-inline: 2.5%;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
 }
+
+#section-quartos .div-text{ 
+    width: 35%;
+}
+
+#section-quartos .section-content{
+    width: 65%;
+}
+
+#carouselExampleDark{
+    width: 100%;
+}
+
+#carouselExampleDark img{
+    height: 65rem;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.div-text{
+    padding-left: 4rem;
+    padding-top: 3rem;
+}
+
+.div-text h4{
+    font-size: 6rem;
+    color: #FFF;
+    text-align: start;
+    margin-bottom: 3rem;
+}
+
+.div-text p{
+    font-size: 3rem;
+    color: #FFF;
+    text-align: start;
+}
+
 
