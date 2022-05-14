@@ -113,7 +113,7 @@ main{
 
     position: sticky;
     top: 2rem;
-    transform: (80%);
+    z-index: 3;
 }
 
 #nav-form form{
@@ -159,7 +159,7 @@ main{
 
 
 #section-quartos{
-    background-color: rgb(47, 74, 224);
+    background-color: rgb(95, 179, 106);
 
     padding-block: 8rem;
     padding-inline: 2.5%;
@@ -187,22 +187,78 @@ main{
     border-radius: .5rem;
 }
 
-.div-text{
+#section-quartos .div-text{
     padding-left: 4rem;
     padding-top: 3rem;
 }
 
-.div-text h4{
+#section-quartos .div-text h4{
     font-size: 6rem;
     color: #FFF;
     text-align: start;
     margin-bottom: 3rem;
 }
 
-.div-text p{
+#section-quartos .div-text p{
     font-size: 3rem;
     color: #FFF;
     text-align: start;
 }
 
+
+
+/*==================== SECTION SERVICOS=======================*/
+
+#section-servicos{
+    background-color: rgb(95, 131, 179);
+
+    padding-block: 8rem;
+    padding-inline: 2.5%;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+}
+
+#section-servicos .div-text{ 
+    width: 35%;
+}
+
+#section-servicos .div-text{
+    padding-right: 4rem;
+    padding-top: 3rem;
+}
+
+#section-servicos .div-text h4{
+    font-size: 6rem;
+    color: #FFF;
+    text-align: start;
+    margin-bottom: 3rem;
+}
+
+#section-servicos .div-text p{
+    font-size: 3rem;
+    color: #FFF;
+    text-align: start;
+}
+
+#section-servicos .section-content{
+    width: 65%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+#section-servicos .card{
+    width: 32rem;
+    height: 30rem;
+    text-align: center;
+}
+
+#section-servicos .card img{
+    object-fit: cover;
+    height: 70%;
+}
 
