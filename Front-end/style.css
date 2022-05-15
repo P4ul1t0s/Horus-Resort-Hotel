@@ -33,64 +33,10 @@ a{
 }
 
 main{
-    height: 100%;
     position:relative
 }
 
-
-
-/*=============== HEADER =======================*/
-
-#initial-header{
-    background-color: #FFE100;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding-inline: 10%;
-    padding-block: .5rem;
-}
-
-#initial-header-navigation ul{
-    padding: 0;
-    margin: 0;
-
-    display: flex;
-    gap:  2rem;
-}
-
-#initial-header-navigation a{
-    font-size: 2rem;
-    font-weight: 500;
-}
-
-#initial-header img{
-    height: 8rem;
-    width: auto;
-}
-
-#initial-header .hotel-name a {
-    font-size: 4rem;
-    font-weight: 700;
-}
-
-
-
-/*======================= SECTION HOME =========================*/
-
-#section-home{
-    background-color: antiquewhite;
-    padding-block: 8rem;
-}
-
-#section-home video{
-    width: 95%;
-    display: block;
-    margin-inline: auto;
-    border-radius: 1rem;
-}
-
+/*navigation config*/
 .absolute-form-box{
     position: absolute;
     
@@ -153,10 +99,90 @@ main{
     padding-block: .2rem;
 }
 
+/*section content config*/
+.div-text h4{
+    font-size: 6rem;
+    color: #FFF;
+    text-align: start;
+    margin-bottom: 3rem;
+}
+
+.div-text{
+    width: 35%;
+}
+
+.div-text p{
+    font-size: 3rem;
+    color: #FFF;
+    text-align: start;
+}
+
+.section-content{
+    width: 65%;
+}
+
+.div-text{
+    padding-left: 4rem;
+    padding-top: 3rem;
+}
+
+
+
+/*=============== HEADER =======================*/
+
+#initial-header{
+    background-color: #FFE100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-inline: 10%;
+    padding-block: .5rem;
+}
+
+#initial-header-navigation ul{
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    gap:  2rem;
+}
+
+#initial-header-navigation a{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#initial-header img{
+    height: 8rem;
+    width: auto;
+}
+
+#initial-header .hotel-name a {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+
+
+/*======================= SECTION HOME =========================*/
+
+#section-home{
+    background-color: antiquewhite;
+    padding-block: 8rem;
+}
+
+#section-home video{
+    width: 95%;
+    display: block;
+    margin-inline: auto;
+    border-radius: 1rem;
+}
+
 
 
 /*==================== SECTION QUARTOS=======================*/
-
 
 #section-quartos{
     background-color: rgb(95, 179, 106);
@@ -169,14 +195,6 @@ main{
     display: flex;
 }
 
-#section-quartos .div-text{ 
-    width: 35%;
-}
-
-#section-quartos .section-content{
-    width: 65%;
-}
-
 #carouselExampleDark{
     width: 100%;
 }
@@ -185,24 +203,6 @@ main{
     height: 65rem;
     object-fit: cover;
     border-radius: .5rem;
-}
-
-#section-quartos .div-text{
-    padding-left: 4rem;
-    padding-top: 3rem;
-}
-
-#section-quartos .div-text h4{
-    font-size: 6rem;
-    color: #FFF;
-    text-align: start;
-    margin-bottom: 3rem;
-}
-
-#section-quartos .div-text p{
-    font-size: 3rem;
-    color: #FFF;
-    text-align: start;
 }
 
 
@@ -220,26 +220,9 @@ main{
     display: flex;
 }
 
-#section-servicos .div-text{ 
-    width: 35%;
-}
-
 #section-servicos .div-text{
+    padding-left: 0;
     padding-right: 4rem;
-    padding-top: 3rem;
-}
-
-#section-servicos .div-text h4{
-    font-size: 6rem;
-    color: #FFF;
-    text-align: start;
-    margin-bottom: 3rem;
-}
-
-#section-servicos .div-text p{
-    font-size: 3rem;
-    color: #FFF;
-    text-align: start;
 }
 
 #section-servicos .section-content{
@@ -262,3 +245,39 @@ main{
     height: 70%;
 }
 
+
+
+/*==================== SECTION LOCALIZACAO=======================*/
+
+#section-localizacao{
+    background-color: rgb(95, 179, 106);
+
+    padding-block: 8rem;
+    padding-inline: 2.5%;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+}
+
+#section-localizacao .div-text address{
+    font-size: 3rem;
+    color: #FFF;
+    text-align: start;
+}
+
+#section-localizacao iframe{
+    height: 50rem;
+    width: 100%;
+    border-radius: .5rem;
+
+    position: relative;
+}
+
+#section-localizacao address a {
+    position: relative;
+}
+
+#section-localizacao .div-text address:nth-of-type(1){
+    font-style: italic;
+}
