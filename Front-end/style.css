@@ -14,7 +14,7 @@
     
 }
 
-.hotel-name a{
+.hotel-name a, .hotel-name, .div-text h4{
     font-family: 'Macondo', cursive;
     font-style: italic;
 }
@@ -40,7 +40,7 @@ main{
 .absolute-form-box{
     position: absolute;
     
-    padding-top: 73rem;
+    padding-top: 74.5rem;
     width: 100%;
     height: 100%;
 }
@@ -50,12 +50,13 @@ main{
     border-radius: .5rem;
 
     margin: 0 auto;
-    width: 50%;
-    padding-block: 1rem;
+    width: fit-content;
+    padding: 2rem 2.5rem;
     
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 7rem;
 
     position: sticky;
     top: 2rem;
@@ -72,14 +73,20 @@ main{
     padding-inline: .7rem;
     padding-block: .2rem;
     font-size: 1.8rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    width: 100%;
 }
 
 #nav-form label{
     color: #D8F3FE;
+    font-size: 1.8rem;
 }
 
 #nav-form a:first-child{
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 500;
     line-height: 3.5rem;
     text-align: center;
@@ -93,8 +100,6 @@ main{
     background-color: #D8F3FE;
     border-radius: .5rem;
 
-    
-    margin-left: 1.5rem;
     padding-inline: .7rem;
     padding-block: .2rem;
 }
@@ -122,11 +127,13 @@ main{
 }
 
 .div-text{
-    padding-left: 4rem;
-    padding-top: 3rem;
+    padding-right: 3rem;
 }
 
-
+main > section{
+    padding-block: 10rem;
+    padding-inline: 2.5%;
+}
 
 /*=============== HEADER =======================*/
 
@@ -170,13 +177,11 @@ main{
 
 #section-home{
     background-color: antiquewhite;
-    padding-block: 8rem;
 }
 
 #section-home video{
-    width: 95%;
+    width: 100%;
     display: block;
-    margin-inline: auto;
     border-radius: 1rem;
 }
 
@@ -186,43 +191,34 @@ main{
 
 #section-quartos{
     background-color: rgb(95, 179, 106);
-
-    padding-block: 8rem;
-    padding-inline: 2.5%;
-    width: 100%;
-    height: fit-content;
-
     display: flex;
 }
 
-#carouselExampleDark{
+#carouselExample{
     width: 100%;
 }
 
-#carouselExampleDark img{
+#carouselExample img{
     height: 65rem;
     object-fit: cover;
     border-radius: .5rem;
 }
 
+.visually-hidden{
+    color: #D8F3FE;
+}
 
+#section-quartos .div-text{
+    padding-right: 0;
+    padding-left: 3rem;
+}
 
 /*==================== SECTION SERVICOS=======================*/
 
 #section-servicos{
     background-color: rgb(95, 131, 179);
 
-    padding-block: 8rem;
-    padding-inline: 2.5%;
-    width: 100%;
-    height: fit-content;
-
     display: flex;
-}
-
-#section-servicos .div-text{
-    padding-left: 0;
-    padding-right: 4rem;
 }
 
 #section-servicos .section-content{
@@ -245,18 +241,16 @@ main{
     height: 70%;
 }
 
+.card-body{
+    height: 30%;
+}
+
 
 
 /*==================== SECTION LOCALIZACAO=======================*/
 
 #section-localizacao{
     background-color: rgb(95, 179, 106);
-
-    padding-block: 8rem;
-    padding-inline: 2.5%;
-    width: 100%;
-    height: fit-content;
-
     display: flex;
 }
 
@@ -280,4 +274,71 @@ main{
 
 #section-localizacao .div-text address:nth-of-type(1){
     font-style: italic;
+}
+
+
+/*==================== Footer=======================*/
+
+footer{
+    display: flex;
+    background-color: #FFE100;
+    padding-block: 3rem;
+}
+
+footer div, footer ul{
+    margin: 0;
+    padding: 0;
+
+    flex-grow: 1;
+}
+
+footer ul h5{
+    font-size: 1.8rem;
+}
+
+footer > div figure img{
+    height: 10rem;
+}
+
+footer figure{
+    margin-inline: auto;
+    width: fit-content;
+}
+
+footer figcaption h6{
+    margin-top: 2rem;
+    margin-bottom: 0;
+    line-height: 0;
+
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+}
+
+footer div:nth-child(4){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+footer div:nth-child(4) h5{
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+#lista-social li{
+    display: inline;
+}
+
+#lista-social{
+    display: flex;
+    gap: 5rem;
+    flex-grow: 0;
+    justify-content: center;
+}
+
+#lista-social img{
+    height: 3.5rem;
 }
