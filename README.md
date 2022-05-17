@@ -31,3 +31,10 @@ Aplicação web para gerenciar hospedagem do Horus Hotel Resort Modelo All-inclu
 
 #### Servidor
  - Tomcat (parece ser o padrão do Spring, verificar versão para todos rodarem a mesma)
+
+## Importante: Boas práticas para codificação usando Git
+ - Antes de iniciar a codificar: **Criar uma Branch nova para trabalhar nela**
+ - Fazer o git checkout na sua branch para entrar nela
+ - Codar e fazer os commits conforme julgar necessário
+ - Após finalizar a tarefa, criar um **Pull Request** no GitHub para a sua Branch
+ - Outra pessoa valida e faz o Merge na branch Main
