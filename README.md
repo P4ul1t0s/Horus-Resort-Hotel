@@ -9,3 +9,25 @@ Aplicação web para gerenciar hospedagem do Horus Hotel Resort Modelo All-inclu
  - Gerenciar reserva 
  - Gerenciar pagamento 
  - Filtro para que usuário possa selecionar de acordo com seu orçamento 
+
+
+## Para desenvolver o projeto:
+
+#### Linguagens
+ - Java na versão **8** (verificar a versão rodando na IDE da sua máquina antes de iniciar a programar)
+
+## IDE's possíveis
+ - NetBeans
+ - VS Code
+ - Eclipse
+ - IntelliJ - https://www.jetbrains.com/pt-br/idea/
+    (Se usar o IntelliJ ele já vem com o Java instalado, pode criar a conta no site da JetBrains usando o e-mail estudantil do SENAC que disponibiliza a versão Pro por 1 ano )
+
+ *Para usar o VS Code ou Eclipse precisa baixar a ferramenta Spring Tools para a IDE escolhida através do site: https://spring.io/tools*
+
+## Framework Backend Java
+ - Java Spring
+    (Responsável por configurar e colocar o pacote do Java Spring no repositório GitHub: @melkmuller)
+
+## Servidor
+ - Tomcat (parece ser o padrão do Spring, verificar versão para todos rodarem a mesma)
