@@ -16,7 +16,7 @@ Aplicação web para gerenciar hospedagem do Horus Hotel Resort Modelo All-inclu
 #### Linguagens
  - Java na versão **8** (verificar a versão rodando na IDE da sua máquina antes de iniciar a programar)
 
-## IDE's possíveis
+#### IDE's possíveis
  - NetBeans
  - VS Code
  - Eclipse
@@ -25,9 +25,9 @@ Aplicação web para gerenciar hospedagem do Horus Hotel Resort Modelo All-inclu
 
  *Para usar o VS Code ou Eclipse precisa baixar a ferramenta Spring Tools para a IDE escolhida através do site: https://spring.io/tools*
 
-## Framework Backend Java
+#### Framework Backend Java
  - Java Spring
     (Responsável por configurar e colocar o pacote do Java Spring no repositório GitHub: @melkmuller)
 
-## Servidor
+#### Servidor
  - Tomcat (parece ser o padrão do Spring, verificar versão para todos rodarem a mesma)
