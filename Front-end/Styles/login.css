@@ -17,9 +17,12 @@ body{
     width: 100vw;
 
     background-color: antiquewhite;
-    font-size: 1.6rem;
 
     padding-top: 50vh;
+
+    background-image: url(../assets/bg-login.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -27,10 +30,13 @@ body{
 /*======================= Login Box =========================*/
 
 form{
-    border: 1px solid blue;
+    background-color: beige;
+    border-radius: .5rem;
+
     text-align: center;
+
     width: fit-content;
-    padding: 2rem;
+    padding: 2rem 2rem 1.5rem;
     margin-inline: auto;
 
     transform: translateY(-50%);
@@ -39,11 +45,15 @@ form{
 h4{
     margin-bottom: 2.5rem;
 
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 label{
     display: block;
+    font-size: 1.8rem;
+}
+
+form label:nth-child(2){
     margin-bottom: 2rem;
 }
 
@@ -51,14 +61,21 @@ input{
     border-radius: .5rem;
     border: none;
 
+    font-size: 1.6rem;
+
     padding-left: .5rem;
     padding-block: .5rem;
     
 }
 
 button{
+    border-radius: .5rem;
+    
+    margin-top: 2.5rem;
     padding: .1rem .5rem;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
 
     line-height: 100%;
+
+
 }
