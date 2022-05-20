@@ -1,0 +1,64 @@
+/*======================= GERAL =========================*/
+
+:root{
+    font-size: 62.5%;
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+
+    background-color: antiquewhite;
+    font-size: 1.6rem;
+
+    padding-top: 50vh;
+}
+
+
+
+/*======================= Login Box =========================*/
+
+form{
+    border: 1px solid blue;
+    text-align: center;
+    width: fit-content;
+    padding: 2rem;
+    margin-inline: auto;
+
+    transform: translateY(-50%);
+}
+
+h4{
+    margin-bottom: 2.5rem;
+
+    font-size: 2rem;
+}
+
+label{
+    display: block;
+    margin-bottom: 2rem;
+}
+
+input{
+    border-radius: .5rem;
+    border: none;
+
+    padding-left: .5rem;
+    padding-block: .5rem;
+    
+}
+
+button{
+    padding: .1rem .5rem;
+    font-size: 1.7rem;
+
+    line-height: 100%;
+}
