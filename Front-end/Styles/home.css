@@ -3,7 +3,15 @@
 :root{
     font-size: 62.5%; /*1rem = 10px*/
     /*font size do root agora vale 10px*/
-    
+
+    --header-color: #FFD24C;
+    --body-bg: #F2F2F2;
+    --link-color: #184BB1;
+    --link-color-hover: #3183F7;
+    --paragraph-color: #092476;
+    --title-color: #092476;
+    --form-bg: #E6A341;
+    --form-text: #0653C4;
 }
 
 *{
@@ -14,14 +22,11 @@
     
 }
 
-.hotel-name a, .hotel-name, .div-text h4{
-    font-family: 'Macondo', cursive;
-    font-style: italic;
-}
 
 #body{ /*id por causa do boostrap*/
     font-size: 1.6rem;
     background-color: #FFF;
+    background-color: var(--body-bg);
 }
 
 ul{
@@ -36,18 +41,76 @@ main{
     position:relative
 }
 
+
+
+/*section content config*/
+.div-text h4{
+    font-size: 6rem;
+    color: var(--title-color);
+    text-align: start;
+    margin-bottom: 3rem;
+}
+
+.div-text{
+    width: 35%;
+}
+
+.div-text p{
+    font-size: 3rem;
+    color: var(--paragraph-color);
+    text-align: start;
+}
+
+.section-content{
+    width: 65%;
+}
+
+.div-text{
+    padding-right: 3rem;
+}
+
+main > section{
+    padding-block: 10rem;
+    padding-inline: 2.5%;
+}
+
+header span a, footer figcaption h6{
+    font-family: 'Macondo', cursive;
+    font-style: italic;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--link-color-hover);
+    
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--title-color);
+}
+
+::-webkit-scrollbar-track{
+    background-color: var(--body-bg);
+}
+
+
+/*=========================== FORM ===============================*/
+
 /*navigation config*/
 .absolute-form-box{
     position: absolute;
     
-    /*padding-top: 74.5rem;*/
     padding-top: calc(35vw + 70px);
     width: 100%;
     height: 100%;
 }
 
 #nav-form{
-    background-color: #DB302A;
+    background-color: var(--form-bg);
     border-radius: .5rem;
 
     margin: 0 auto;
@@ -82,7 +145,7 @@ main{
 }
 
 #nav-form label{
-    color: #D8F3FE;
+    color: var(--form-text);
     font-size: 1.8rem;
 }
 
@@ -91,62 +154,32 @@ main{
     font-weight: 500;
     line-height: 3.5rem;
     text-align: center;
-    color: #D8F3FE;
+    color: var(--form-text);
 }
 
 #nav-form a:last-child{
     font-size: 2rem;
     font-weight: 700;
 
-    background-color: #D8F3FE;
+    background-color: #23B24C;
+    color: #033740;
     border-radius: .5rem;
 
     padding-inline: .7rem;
     padding-block: .2rem;
 }
 
-/*section content config*/
-.div-text h4{
-    font-size: 6rem;
-    color: #FFF;
-    text-align: start;
-    margin-bottom: 3rem;
-}
-
-.div-text{
-    width: 35%;
-}
-
-.div-text p{
-    font-size: 3rem;
-    color: #FFF;
-    text-align: start;
-}
-
-.section-content{
-    width: 65%;
-}
-
-.div-text{
-    padding-right: 3rem;
-}
-
-main > section{
-    padding-block: 10rem;
-    padding-inline: 2.5%;
-}
-
 /*=============== HEADER =======================*/
 
 #initial-header{
-    background-color: #FFE100;
+    background-color: var(--header-color);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding-inline: 10%;
-    padding-block: .5rem;
+    padding-block: .6rem;
 }
 
 #initial-header-navigation ul{
@@ -168,16 +201,42 @@ main > section{
 }
 
 #initial-header .hotel-name a {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700;
+    color: var(--link-color);
 }
 
 
+/*navigation efects/animations*/
+header nav a{
+    color: var(--link-color);
+    transition: .3s;
+}
+
+header nav a:hover{
+    color: var(--link-color-hover);
+    
+}
+
+header nav a::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: var(--link-color-hover);
+    position: relative;
+    
+    display: block;
+    bottom: -2.7rem;
+    transition: .3s;
+}
+
+header nav a:hover::after{
+    width: 100%;
+}
 
 /*======================= SECTION HOME =========================*/
 
 #section-home{
-    background-color: antiquewhite;
 }
 
 #section-home video{
@@ -191,7 +250,6 @@ main > section{
 /*==================== SECTION QUARTOS=======================*/
 
 #section-quartos{
-    background-color: rgb(95, 179, 106);
     display: flex;
 }
 
@@ -217,8 +275,6 @@ main > section{
 /*==================== SECTION SERVICOS=======================*/
 
 #section-servicos{
-    background-color: rgb(95, 131, 179);
-
     display: flex;
 }
 
@@ -235,7 +291,15 @@ main > section{
     width: 32rem;
     height: 30rem;
     text-align: center;
+
+    transition: .3s;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
 }
+
+#section-servicos .card:hover{
+    box-shadow: 13px 13px 7px rgba(0, 0, 0, 0.3);
+}
+
 
 #section-servicos .card img{
     object-fit: cover;
@@ -251,13 +315,12 @@ main > section{
 /*==================== SECTION LOCALIZACAO=======================*/
 
 #section-localizacao{
-    background-color: rgb(95, 179, 106);
     display: flex;
 }
 
 #section-localizacao .div-text address{
     font-size: 2.5rem;
-    color: #FFF;
+    color: var(--link-color-hover);
     text-align: start;
 }
 
@@ -271,13 +334,14 @@ main > section{
 
 #section-localizacao address a {
     position: relative;
+    color: var(--link-color-hover);
 }
 
 /*==================== Footer=======================*/
 
 footer{
     display: flex;
-    background-color: #FFE100;
+    background-color: var(--header-color);
     padding-block: 3rem;
 }
 
@@ -290,6 +354,11 @@ footer div, footer ul{
 
 footer ul h5{
     font-size: 1.8rem;
+    color: var(--title-color);
+}
+
+footer ul a{
+    color: var(--link-color-hover);
 }
 
 footer > div figure img{
@@ -316,6 +385,7 @@ footer div:nth-child(4){
     justify-content: center;
     flex-direction: column;
     gap: 1.5rem;
+    color: var(--title-color);
 }
 
 footer div:nth-child(4) h5{
