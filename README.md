@@ -7,7 +7,6 @@ Aplicação web para gerenciar hospedagem do Horus Hotel Resort Modelo All-inclu
  - Gerenciar hóspede 
  - Gerenciar produtos 
  - Gerenciar reserva 
- - Gerenciar pagamento 
  - Filtro para que usuário possa selecionar de acordo com seu orçamento 
 
 
