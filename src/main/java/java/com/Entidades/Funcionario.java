@@ -6,7 +6,7 @@ public class Funcionario {
     private String email;
     private String senha;
     private String funcao;
-
+//odelta
     public String getNome() {
         return nome;
     } 
