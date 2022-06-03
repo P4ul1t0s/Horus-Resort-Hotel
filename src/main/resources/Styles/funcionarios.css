@@ -1,0 +1,296 @@
+/*Anotações:
+
+*/
+
+
+/*===========GERAL==============*/
+:root{
+    font-size: 62.5%;
+
+    --bg-menu: #C4DDFF;
+    --bg-openClose-menu: #0AA1DD;
+    --width-comprimido: 10rem;
+    --width-expandido: 27rem;
+    --input-bg-color: rgb(184, 184, 184);
+    --input-txt-color: rgb(0, 0, 0);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+/*=========================== MENU ==========================*/
+
+/*geral menu*/
+.menu{
+    height: 100vh;
+    
+    text-align: center;
+    
+    background-color: var(--bg-menu);
+    
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.menu img{
+    width: 8rem;
+}
+
+.menu #caixa-botao{
+    background-color: var(--bg-openClose-menu);
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu button{
+    background: none;
+    border: none;
+}
+
+.menu button:hover{
+    cursor: pointer;
+}
+
+.menu nav{
+    flex-grow: 1;
+}
+
+.comprimido ul, .expandido ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    height: 100%;
+}
+
+.menu li a {
+    height: 100%;
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/*menu comprimido*/
+.comprimido{
+    width: var(--width-comprimido);
+}
+
+.comprimido + main{
+    padding-left: var(--width-comprimido);
+}
+
+.comprimido nav{
+    margin-top: 15rem;
+}
+
+/*menu expandido*/
+.expandido{
+    width: var(--width-expandido);
+}
+
+.expandido + main{
+    padding-left: var(--width-expandido);
+}
+
+.expandido header{
+    height: 15rem;
+    padding-top: 3rem;
+}
+
+.expandido h3{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+.expandido h4{
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.expandido h5{
+    font-size: 1.6rem;
+}
+
+.expandido #hospedes::after{
+    content: "Hóspedes";
+    font-size: 2.5rem;
+}
+
+.expandido #quartos::after{
+    content: "Quartos";
+    font-size: 2.5rem;
+}
+
+.expandido #reservas::after{
+    content: "Reservas";
+    font-size: 2.5rem;
+}
+
+.expandido #voltar::after{
+    content: "Voltar";
+    font-size: 2.5rem;
+}
+
+
+
+/*=========================== MAIN ==========================*/
+main {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+
+main > div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*=========================== LISTA OBJETOS ==========================*/
+#lista-funcionarios{
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.objetos span{
+    display: block;
+}
+
+.objetos span:not(.objetos span:last-child){
+    margin-bottom: .3rem;
+}
+
+.objetos{
+    border: 1px solid red;
+    border-radius: .5rem;
+
+    font-size: 1.8rem;
+
+    width: 30%;
+    margin: 3rem auto;
+
+    padding: .5rem;
+    position: relative;
+}
+
+.objetos:hover{
+    cursor: pointer;
+}
+
+.objetos #span-id{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: end;
+
+    position: absolute;
+    right: 1rem;
+}
+
+/*=========================== FORMULARIO PESQUISA ==========================*/
+#form-search{
+    display: flex;
+    justify-content: center;
+
+    width: fit-content;
+    margin: 3rem auto 8rem;
+    padding: .2rem 2rem;
+
+    background-color: var(--input-bg-color);
+
+    border-radius: 5rem;
+}
+
+#form-search input{
+    border: none;
+    outline: none;
+    background-color: var(--input-bg-color);
+    
+    font-size: 1.6rem;
+}
+#form-search button{
+    background: none;
+    border: none;
+
+}
+
+#form-search button:hover{
+    cursor: pointer;
+}
+
+#form-search button img{
+    height: 3rem;
+}
+
+/*=========================== FORMULARIO CARD ==========================*/
+
+#form-selected{
+    display: flex;
+    flex-direction: column;
+
+    padding-inline: 2rem;
+
+    background-color: var(--input-bg-color);
+
+    border-radius: .5rem;
+    margin-inline: 1.5vw;
+}
+
+#form-selected span{
+    font-size: 3.5rem;
+    text-align: center;
+    margin-block: 1rem 2.5rem;
+}
+
+#form-selected input{
+    padding: .5rem;
+    margin-bottom: 2rem;
+
+    border: none;
+    outline: none;
+
+    font-size: 2rem;
+
+    border-radius: .5rem;
+}
+
+#form-selected input:nth-of-type(4){
+    margin-bottom: 4rem;
+}
+
+
+#form-selected + fieldset{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+
+    margin-top: 2rem;
+    margin-inline: 1.5vw;
+    
+    border: none;
+}
+
+#form-selected + fieldset button{
+    padding: .2rem .5rem;
+
+    border-radius: .5rem;
+
+    font-size: 1.6rem;
+}
+
+#form-selected + fieldset button:hover{
+    cursor: pointer;
+}
