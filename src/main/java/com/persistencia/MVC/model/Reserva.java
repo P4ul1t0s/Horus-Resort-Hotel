@@ -1,4 +1,4 @@
-package java.com.Entidades;
+package com.persistencia.MVC.model;
 
 import java.util.Date;
 import java.util.List;

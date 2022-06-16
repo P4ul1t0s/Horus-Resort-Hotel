@@ -1,84 +1,55 @@
-package java.com.Entidades;
+package com.persistencia.MVC.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.springframework.lang.NonNull;
+public class Hospede {
 
-
-@Entity //diz que é uma entidade
-@Table(name = "funcionario") //definindo o nome da tabela no banco de dados (somente caso eu queira que o nome da tabela seja diferente do nome da classe)
-public class Funcionario {
-    
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name ="id_Pessoa") 
+    @Column(name ="id_Hospede") 
     private int id;
-
     @Column(nullable = false, length = 255)
     private String nome;
-
-    @Column(nullable = false, unique = true) 
+    @Column(nullable = false, length = 11)
     private String cpf;
-
-    @Column(nullable = false, length = 255) 
-    private String endereco;
-
-    @Column(nullable = false, length = 255, unique = true) 
+    @Column(nullable = false, length = 11)
     private String telefone;
-
-    @Column(nullable = false, length = 255, unique = true) 
+    @Column(nullable = false, length = 255)
     private String email;
-
-    @Column(nullable = false, length = 255) 
+    @Column(nullable = false, length = 255)
     private String senha;
 
-    @NonNull
-    private boolean admin;
-
-    
-    
     public int getId() {
         return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
-    
-    
+
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public String getCpf() {
         return cpf;
     }
-    
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    public String getEndereco() {
-        return endereco;
-    }
-    
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    
+
     public String getTelefone() {
         return telefone;
     }
-    
+
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
@@ -86,7 +57,7 @@ public class Funcionario {
     public String getEmail() {
         return email;
     }
-    
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -98,14 +69,4 @@ public class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-    
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
-
-
 }

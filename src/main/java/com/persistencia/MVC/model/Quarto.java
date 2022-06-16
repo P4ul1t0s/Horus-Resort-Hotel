@@ -1,4 +1,4 @@
-package java.com.Entidades;
+package com.persistencia.MVC.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
