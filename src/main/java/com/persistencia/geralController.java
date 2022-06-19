@@ -25,4 +25,9 @@ public class geralController {
     public String formCadCliente(){
         return "funcionarios";
     }
+	
+	@RequestMapping("/back/hospedes")
+    public String hospedes(){
+        return "hospedes";
+    }
 }
