@@ -72,7 +72,7 @@
                 <div id="form-buttons">
                     <button type="submit" id="btCreate">Cadastrar</button>
                     <button type="submit" id="btUpdate">Atualizar</button>
-                    <button type="submit" id="btDelete">Excluir</button>
+                    <a th:href="@{'/back/hospedes/excluir?id_Hospede='+${id}}" id="btExcluir">excluir</a>
                 </div>
             </form>
             
@@ -82,6 +82,7 @@
     <script  th:src="@{/Scripts/geral.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        let idHospede
             $.ajax({
             type: "GET", 
             dataType: "json", 
@@ -128,6 +129,8 @@
                             document.querySelector("input[name='email']").value = email
                             document.querySelector("input[name='telefone']").value = telefone
                             document.querySelector("input[name='senha']").value = senha
+
+                            idHospede = id
                         })
                     })
                 },
