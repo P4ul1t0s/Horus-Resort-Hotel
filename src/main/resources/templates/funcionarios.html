@@ -3,9 +3,17 @@
     <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Styles/funcionarios.css">
+    <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
+    <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
+    <!--<link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">-->
     
+    <!-- src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS"
+    th:src="@{/assets/icon-reservas.png}" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
 </style>
 </head>
 <body>
@@ -17,14 +25,14 @@
         </header>
         <nav>
             <ul>
-                <li><a href="" id="hospedes"><img src="./assets/icon-hospedes.png" title="Hóspedes"></a></li>
-                <li><a href="" id="quartos"><img src="./assets/icon-quartos.png" title="Quartos"></a></li>
-                <li><a href="" id="reservas"><img src="./assets/icon-reservas.png" title="Reservas"></a></li>
-                <li><a href="" id="voltar"><img src="./assets/icon-voltar.png" title="Voltar"></a></li>
+                <li><a href="" id="hospedes"><img src="../static/assets/icon-hospedes.png" title="Hóspedes"></a></li>
+                <li><a href="" id="quartos"><img src="../static/assets/icon-quartos.png" title="Quartos"></a></li>
+                <li><a href="" id="reservas"><img src="../static/assets/icon-reservas.png" title="Reservas"></a></li>
+                <li><a href="" id="voltar"><img  src="../static/assets/icon-voltar.png" title="Voltar"></a></li>
             </ul>
         </nav>
         <div id="caixa-botao">
-            <button onclick="openOrCloseMenu()"><img src="./assets/icon-open-menu.png"></button>
+            <button onclick="openOrCloseMenu()"><img  src="../static/assets/icon-open-menu.png"></button>
         </div>
     </aside>
 
@@ -37,148 +45,60 @@
                 <span id="span-email">igorfernamdez@gmail.com</span>
                 <span id="span-senha">camysama</span>
             </li>
-            <li class="objetos">
-                <span id="span-id">002</span>
-                <span id="span-nome">Superman</span>
-                <span id="span-cargo">Hero</span>
-                <span id="span-email">clark@kent.com</span>
-                <span id="span-senha">louislane69</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">003</span>
-                <span id="span-nome">Batman</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">004</span>
-                <span id="span-nome">Harley Quinn</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">005</span>
-                <span id="span-nome">Poison Ivy</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">006</span>
-                <span id="span-nome">Riddler</span>
-                <span id="span-cargo">Villain</span>
-                <span id="span-email">greenRiddler@vaillains.com</span>
-                <span id="span-senha">?</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
         </ul>
         
         <div id="div-formularios">
-            <form action="" id="form-search">
+            <form action="" id="form-pesquisa-funcionario" method="get">
                 <input type="text" placeholder="nome do funcionario">
-                <button type="submit"><img src="./assets/icon-search.png" title="Pesquisar"></button>
+                <button type="submit"><img src="../static/assets/icon-search.png" title="Pesquisar"></button>
             </form>
-            <form action="" id="form-selected" method="get">
-                <span id="selected-id">000</span>
-                <input type="text" id="selected-nome" value="" placeholder="nome do funcionário">
-                <input type="text" id="selected-cargo" value=""  placeholder="cargo do funcionário">
-                <input type="email" id="selected-email" value=""  placeholder="email do funcionário">
-                <input type="text" id="selected-senha" value=""  placeholder="senha do funcionário">
+
+            <form action="" id="form-funcionario-selecionado" method="post">
+                <span id="id-funcionario-selecionado">000</span>
+
+                <fieldset id="fs-dados-gerais">
+                    <legend>Dados Gerais</legend>
+                    <input type="text" placeholder="Nome" name="nome">
+                    <input type="text" placeholder="CPF" name="cpf">
+                    <input type="text" placeholder="Senha" name="senha">
+                </fieldset>
+
+                <fieldset id="fs-endereco">
+                    <legend>Endereço</legend>
+                    <input type="text" placeholder="CEP" name="cep">
+                    <input type="text" placeholder="Cidade" name="cidade">
+                    <input type="text" placeholder="Bairro" name="bairro">
+                    <input type="text" placeholder="Rua" name="rua">
+                    <input type="text" placeholder="Número" name="numero">
+                </fieldset>
+
+                <fieldset id="fs-contato">
+                    <legend>Contato</legend>
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="email" placeholder="Telefone" name="telefone">
+                </fieldset>
+
+                <fieldset id="fs-admin">
+                    <legend>Usuário administrador?</legend>
+                    <label for="true"> Sim
+                        <input type="radio" name="admin" value="true" id="true">
+                    </label>
+                    <label for="false"> Não
+                        <input type="radio" name="admin" value="false" id="false">
+                    </label>
+                </fieldset>
+
+                <div id="form-buttons">
+                    <button type="submit" id="btCreate">Cadastrar</button>
+                    <button type="submit" id="btUpdate">Atualizar</button>
+                    <button type="submit" id="btDelete">Excluir</button>
+                </div>
             </form>
-            <fieldset form="form-selected">
-                <button type="submit">Atualizar</button>
-                <button type="submit">Excluir</button>
-            </fieldset>
+            
         </div>
     </main> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        let funcionarios = ""
-
-        $.ajax({
-            type: "GET", 
-            dataType: "json", 
-            url:"/api/funcionarios",
-            success: function(arrayFuncionarios){
-                for (let funcionario of arrayFuncionarios) {
-                    funcionarios +=`<li class="objetos">
-                                        ${funcionario.nome}
-                                    
-                                    
-                                    </li>`
-                }
-                $("#lista-funcionarios").append(funcionarios)
-            },
-            error: function(){
-                
-            },
-            beforeSend: function(){
-                
-            }
-        })
-        const menuExpandido = document.querySelector(".expandido")
-        const menuComprimido = document.querySelector(".comprimido")
-        const menu = document.querySelector(".menu")
-
-
-        function openOrCloseMenu(){
-            if(menu.getAttribute("class").includes("comprimido")){
-                openMenu()
-            } else{
-                closeMenu()
-            }
-        }        
-        
-        function openMenu(){
-            menuComprimido.classList.remove("comprimido")
-            menuComprimido.classList.add("expandido")
-
-            document.querySelector(".menu h3").innerText = "Hórus System"
-            document.querySelector(".menu h4").innerText = "nome funcionario"
-            document.querySelector(".menu h5").innerText = "32/05/2022 - 21:04"
-        }
-
-        function closeMenu(){
-            menuComprimido.classList.remove("expandido")
-            menuComprimido.classList.add("comprimido")
-
-            document.querySelector(".menu h3").innerText = ""
-            document.querySelector(".menu h4").innerText = ""
-            document.querySelector(".menu h5").innerText = ""
-        }
-        
-        document.querySelectorAll(".objetos").forEach(blocoFuncionario =>{
-            let idFuncionario = blocoFuncionario.firstElementChild.innerText
-            let nomeFuncionario = blocoFuncionario.firstElementChild.nextElementSibling.innerText
-            let cargoFuncionario = blocoFuncionario.firstElementChild.nextElementSibling.nextElementSibling.innerText
-            let emailFuncionario = blocoFuncionario.lastElementChild.previousElementSibling.innerText
-            let senhaFuncionario = blocoFuncionario.lastElementChild.innerText
-            
-            blocoFuncionario.addEventListener("click", ()=>{
-                document.querySelector("#selected-id").innerText = idFuncionario
-                document.querySelector("#selected-nome").value = nomeFuncionario
-                document.querySelector("#selected-cargo").value = cargoFuncionario
-                document.querySelector("#selected-email").value = emailFuncionario
-                document.querySelector("#selected-senha").value = senhaFuncionario
-            })
-        })//end for each
-        
-        </script>
+    <script src="../static/Scripts/funcionarios.js"></script>
 </body>
 </html>

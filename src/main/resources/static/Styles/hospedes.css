@@ -22,6 +22,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
 }
 
 
@@ -126,7 +127,7 @@
 }
 
 .expandido #hospedes::after{
-    content: "Hóspedes";
+    content: "Funcionários";
     font-size: 2.5rem;
 }
 
@@ -161,7 +162,7 @@ main > div{
 
 
 /*=========================== LISTA OBJETOS ==========================*/
-#lista-funcionarios{
+#lista-hospedes{
     height: 100vh;
     overflow-y: scroll;
 }
@@ -201,43 +202,44 @@ main > div{
 }
 
 /*=========================== FORMULARIO PESQUISA ==========================*/
-#form-search{
+#form-pesquisa-hospede{
     display: flex;
     justify-content: center;
 
-    width: fit-content;
-    margin: 3rem auto 8rem;
-    padding: .2rem 2rem;
+    
+    margin-inline: 1.5vw;
+    margin-block: 3rem;
+    
 
     background-color: var(--input-bg-color);
 
-    border-radius: 5rem;
+    border-radius: .5rem;
 }
 
-#form-search input{
+#form-pesquisa-hospede input{
     border: none;
     outline: none;
     background-color: var(--input-bg-color);
-    
-    font-size: 1.6rem;
+    width: 80%;
+    font-size: 1.8rem;
 }
-#form-search button{
+#form-pesquisa-hospede button{
     background: none;
     border: none;
-
+    margin-block: .5rem;
 }
 
-#form-search button:hover{
+#form-pesquisa-hospede button:hover{
     cursor: pointer;
 }
 
-#form-search button img{
+#form-pesquisa-hospede button img{
     height: 3rem;
 }
 
-/*=========================== FORMULARIO CARD ==========================*/
+/*=========================== FORMULARIO DE CADASTRO ==========================*/
 
-#form-selected{
+#form-hospede-selecionado{
     display: flex;
     flex-direction: column;
 
@@ -249,48 +251,61 @@ main > div{
     margin-inline: 1.5vw;
 }
 
-#form-selected span{
-    font-size: 3.5rem;
+#form-hospede-selecionado fieldset{
     text-align: center;
-    margin-block: 1rem 2.5rem;
+
+    margin-block: 1rem;
+
+    border: none;
 }
 
-#form-selected input{
-    padding: .5rem;
-    margin-bottom: 2rem;
+#form-hospede-selecionado fieldset legend{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#id-hospede-selecionado{
+    font-size: 3rem;
+    text-align: center;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+#form-hospede-selecionado input:not(input[name="admin"]){
+    padding: .4rem;
+    padding-left: .8rem;
+    margin-block: .8rem;
 
     border: none;
     outline: none;
 
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     border-radius: .5rem;
+    width: 90%;
 }
-
-#form-selected input:nth-of-type(4){
-    margin-bottom: 4rem;
-}
-
-
-#form-selected + fieldset{
+#fs-admin{
     display: flex;
     justify-content: center;
-    gap: 5rem;
-
-    margin-top: 2rem;
-    margin-inline: 1.5vw;
-    
-    border: none;
+    gap: 2rem;
+}
+#fs-admin label{
+    font-size: 1.8rem;
 }
 
-#form-selected + fieldset button{
-    padding: .2rem .5rem;
+/*=========================== FORMULARIO DE CADASTRO - BOTOES ==========================*/
+
+#form-buttons{
+    margin-block: 2rem;
+    display: flex;
+    justify-content: space-around;
+
+} 
+
+#form-buttons button{
+    font-size: 2rem;
+
+    padding: .2rem .4rem;
 
     border-radius: .5rem;
-
-    font-size: 1.6rem;
-}
-
-#form-selected + fieldset button:hover{
-    cursor: pointer;
 }
