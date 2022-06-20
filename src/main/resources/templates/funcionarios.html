@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
     <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
-    <!--<link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">-->
+    <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
     
-    <!-- src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS"
-    th:src="@{/assets/icon-reservas.png}" -->
+    src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS" 
+    th:src="@{/assets/icon-reservas.png}"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
     </aside>
 
     <main>
-        <ul id="lista-funcionarios">
+        <!-- <ul id="lista-funcionarios">
             <li class="objetos">
                 <span id="span-id">001</span>
                 <span id="span-nome">Igor Fernandes</span>
@@ -45,7 +45,7 @@
                 <span id="span-email">igorfernamdez@gmail.com</span>
                 <span id="span-senha">camysama</span>
             </li>
-        </ul>
+        </ul> -->
         
         <div id="div-formularios">
             <form action="" id="form-pesquisa-funcionario" method="get">
@@ -53,9 +53,8 @@
                 <button type="submit"><img src="../static/assets/icon-search.png" title="Pesquisar"></button>
             </form>
 
-            <form action="" id="form-funcionario-selecionado" method="post">
-                <span id="id-funcionario-selecionado">000</span>
-
+            <form action="/funcionario" id="form-funcionario-selecionado" method="post">
+                
                 <fieldset id="fs-dados-gerais">
                     <legend>Dados Gerais</legend>
                     <input type="text" placeholder="Nome" name="nome">
@@ -75,7 +74,7 @@
                 <fieldset id="fs-contato">
                     <legend>Contato</legend>
                     <input type="email" placeholder="Email" name="email">
-                    <input type="email" placeholder="Telefone" name="telefone">
+                    <input type="text" placeholder="Telefone" name="telefone">
                 </fieldset>
 
                 <fieldset id="fs-admin">
@@ -90,8 +89,6 @@
 
                 <div id="form-buttons">
                     <button type="submit" id="btCreate">Cadastrar</button>
-                    <button type="submit" id="btUpdate">Atualizar</button>
-                    <button type="submit" id="btDelete">Excluir</button>
                 </div>
             </form>
             
