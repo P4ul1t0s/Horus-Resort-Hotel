@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
-    <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
     <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
-    
-    src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS" 
-    th:src="@{/assets/icon-reservas.png}"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,7 +24,7 @@
                 <li><a href="" id="hospedes"><img src="../static/assets/icon-hospedes.png" title="Hóspedes"></a></li>
                 <li><a href="" id="quartos"><img src="../static/assets/icon-quartos.png" title="Quartos"></a></li>
                 <li><a href="" id="reservas"><img src="../static/assets/icon-reservas.png" title="Reservas"></a></li>
-                <li><a href="" id="voltar"><img  src="../static/assets/icon-voltar.png" title="Voltar"></a></li>
+                <li><a href="" id="voltar"><img src="../static/static/assets/icon-voltar.png" title="Voltar"></a></li>
             </ul>
         </nav>
         <div id="caixa-botao">
@@ -37,20 +33,9 @@
     </aside>
 
     <main>
-        <!-- <ul id="lista-funcionarios">
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-        </ul> -->
-        
         <div id="div-formularios">
-            <form action="" id="form-pesquisa-funcionario" method="get">
-                <input type="text" placeholder="nome do funcionario">
-                <button type="submit"><img src="../static/assets/icon-search.png" title="Pesquisar"></button>
+            <form action="/funcionario" method="GET">
+                
             </form>
 
             <form action="/funcionario" id="form-funcionario-selecionado" method="post">
