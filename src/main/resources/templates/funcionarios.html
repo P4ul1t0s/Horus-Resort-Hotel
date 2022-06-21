@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
-    <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
     <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
-    
-    src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS" 
-    th:src="@{/assets/icon-reservas.png}"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,21 +14,16 @@
 </head>
 <body>
     <aside class="menu comprimido">
-        <header>
-            <h3></h3>
-            <h4 id="nome-funcionario"></h4>
-            <h5 id="momento-login"></h5>
-        </header>
         <nav>
             <ul>
-                <li><a href="" id="hospedes"><img src="../static/assets/icon-hospedes.png" title="Hóspedes"></a></li>
-                <li><a href="" id="quartos"><img src="../static/assets/icon-quartos.png" title="Quartos"></a></li>
-                <li><a href="" id="reservas"><img src="../static/assets/icon-reservas.png" title="Reservas"></a></li>
-                <li><a href="" id="voltar"><img  src="../static/assets/icon-voltar.png" title="Voltar"></a></li>
+                <li><a href="" id="hospedes"><img th:src="@{/assets/icon-hospedes.png}" title="Hóspedes"></a></li>
+                <li><a href="" id="quartos"><img th:src="@{/assets/icon-quartos.png}" title="Quartos"></a></li>
+                <li><a href="" id="reservas"><img th:src="@{/assets/icon-reservas.png}" title="Reservas"></a></li>
+                <li><a href="" id="voltar"><img  th:src="@{/assets/icon-voltar.png}" title="Voltar"></a></li>
             </ul>
         </nav>
         <div id="caixa-botao">
-            <button onclick="openOrCloseMenu()"><img  src="../static/assets/icon-open-menu.png"></button>
+            <button onclick="openOrCloseMenu()"><img  th:src="@{/assets/icon-open-menu.png}"></button>
         </div>
     </aside>
 
@@ -50,7 +41,7 @@
         <div id="div-formularios">
             <form action="" id="form-pesquisa-funcionario" method="get">
                 <input type="text" placeholder="nome do funcionario">
-                <button type="submit"><img src="../static/assets/icon-search.png" title="Pesquisar"></button>
+                <button type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
             </form>
 
             <form action="/funcionario" id="form-funcionario-selecionado" method="post">
