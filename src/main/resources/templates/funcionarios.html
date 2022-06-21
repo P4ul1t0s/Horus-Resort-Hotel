@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
     <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,21 +27,16 @@
     </aside>
 
     <main>
-        <!-- <ul id="lista-funcionarios">
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-        </ul> -->
-        
+        <div>
+            <ul id="lista-funcionarios">
+            </ul>
+        </div>
+
         <div id="div-formularios">
-            <form action="" id="form-pesquisa-funcionario" method="get">
+            <!-- <form action="" id="form-pesquisa-funcionario" method="get">
                 <input type="text" placeholder="nome do funcionario">
                 <button type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
-            </form>
+            </form> -->
 
             <form action="/funcionario" id="form-funcionario-selecionado" method="post">
                 
@@ -87,6 +81,7 @@
     </main> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../static/Scripts/funcionarios.js"></script>
+    <script th:src="@{/Scripts/funcionarios.js}"></script>
+    <script>listaFuncionarios();</script>
 </body>
 </html>
