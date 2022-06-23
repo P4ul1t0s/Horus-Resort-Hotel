@@ -131,8 +131,8 @@
     font-size: 2.5rem;
 }
 
-.expandido #quartos::after{
-    content: "Quartos";
+.expandido #funcionarios::after{
+    content: "Funcionários";
     font-size: 2.5rem;
 }
 
