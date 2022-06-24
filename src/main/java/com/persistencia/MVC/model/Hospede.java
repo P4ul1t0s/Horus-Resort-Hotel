@@ -1,16 +1,18 @@
 package com.persistencia.MVC.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Hospede {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name ="id_Hospede") 
-    private int id;
+    private Long id;
     @Column(nullable = false, length = 255)
     private String nome;
     @Column(nullable = false, length = 11)
@@ -22,11 +24,11 @@ public class Hospede {
     @Column(nullable = false, length = 255)
     private String senha;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
