@@ -12,6 +12,8 @@ $('#adicionar').on('click', function() {
     $('#listar').removeClass('active')
 })
 
+$('#editar').on('click', listaFuncionarios())
+
 //======================AJAX==============================
 
 function listaFuncionarios() {
@@ -28,15 +30,11 @@ function listaFuncionarios() {
                                     <td> ${funcionario.email}</td> 
                                     <td> ${funcionario.telefone}</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning">Editar</button>
-                                        <button type="button" class="btn btn-danger">Excluir</button>
+                                        <input type="submit" class="btn btn-warning" value=Editar onclick="editarFuncionario(${funcionario.id})">
                                     </td>
                                 </tr>`
             }
             $("#tabela-funcionarios").append(funcionarios)
-        },
-        error: function(){
-            
         },
         beforeSend: function(){
             $('#listar').on('click', function() {
@@ -44,7 +42,40 @@ function listaFuncionarios() {
                 $('#listagem-funcionarios').show()
                 $('#form-adiciona-funcionario').hide()
                 $('#listar').addClass('active')
+                $('#containerEditar').hide()
+                $('#editar').removeClass('active')
             })
+        }
+    })
+}
+
+function editarFuncionario(id){
+    
+    $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"/funcionario/" + id,
+        success: function (data) {
+            $("#containerEditar").find("#nome").val(data.nome);
+            $("#containerEditar").find("#cpf").val(data.cpf);
+            $("#containerEditar").find("#cep").val(data.cep);
+            $("#containerEditar").find("#cidade").val(data.cidade);
+            $("#containerEditar").find("#bairro").val(data.bairro);
+            $("#containerEditar").find("#rua").val(data.rua);
+            $("#containerEditar").find("#numero").val(data.numero);
+            $("#containerEditar").find("#email").val(data.email);
+            $("#containerEditar").find("#telefone").val(data.telefone);
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao carregar os dados dos clientes");
+        },
+        beforeSend: function () {
+            $('#editar').addClass('active');
+            $('#listar').removeClass('active');
+            $('#adicionar').removeClass('active');
+            $('#containerEditar').show();
+            $('#form-adiciona-funcionario').hide()
+            $('#listagem-funcionarios').hide()
         }
     })
 }
