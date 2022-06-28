@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/Styles/quartos.css}">
     <title>Quartos</title>
+    <script src="../static/Scripts/quartos.js"></script>
     <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
     <!--<link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">-->
     
@@ -16,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
 </head>
 <body>
+        <button type="button" id="listar" onclick="listar()" >Listar quartos</button>
     <aside class="menu comprimido">
         <header>
             <h3></h3>
@@ -46,11 +48,12 @@
                 <span id="span-ocupado">Vago</span>
             </li>
         </ul>
+
         
         <div id="div-formularios">
-            <form action="" id="form-pesquisa-quarto" method="get">
+            <form id="form-pesquisa-quarto">
                 <input type="text" placeholder="nome do quarto">
-                <button type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
+                <button onclick="listar()" type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
             </form>
 
             <form action="" id="form-quarto-selecionado" method="post">
