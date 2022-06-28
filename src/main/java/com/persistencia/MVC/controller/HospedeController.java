@@ -16,7 +16,7 @@ public class HospedeController {
     @Autowired
     HospedeRepository dao;
     
-    @PostMapping("/salvar")
+    @PostMapping
     public String salvar(Hospede x){
         dao.save(x);
         return "redirect:/hospede";
