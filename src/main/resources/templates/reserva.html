@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <script src="/Scripts/reserva.js"></script>
     </style>
 </head>
 
@@ -39,7 +40,15 @@
     </aside>
 
     <main>
-        <ul id="lista-funcionarios">
+        <ul id="lista-reserva">
+            <li class="objetos">
+                <span id="span-id">001</span>
+                <span id="span-nome">Igor Fernandes</span>
+                <span id="span-cargo">Desenvolvedor Front-End</span>
+                <span id="span-email">igorfernamdez@gmail.com</span>
+                <span id="span-senha">camysama</span>
+            </li>
+      
             <li class="objetos">
                 <span id="span-id">001</span>
                 <span id="span-nome">Igor Fernandes</span>
@@ -48,11 +57,11 @@
                 <span id="span-senha">camysama</span>
             </li>
         </ul>
-
+        
         <div id="div-formularios">
-            <form action="" id="form-pesquisa-funcionario" method="get">
+            <form id="form-pesquisa-funcionario">
                 <input type="text" placeholder="Hospedagens">
-                <button type="submit"><img src="../static/assets/icon-search.png" title="Pesquisar"></button>
+                <button  onclick="listar()" >Pesquisar</button>
             </form>
 
             <form action="/reserva/salvar" id="form-funcionario-selecionado" method="post">

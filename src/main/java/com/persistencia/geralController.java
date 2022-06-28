@@ -25,6 +25,9 @@ public class geralController {
     public String formCadCliente(){
         return "funcionarios";
 	}
-	
+	@RequestMapping("/back/reserva")
+    public String viewerReserva(){
+        return "reserva";
+	}
 	
 }

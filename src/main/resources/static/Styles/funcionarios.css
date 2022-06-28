@@ -166,7 +166,10 @@ main > div{
     height: 100vh;
     overflow-y: scroll;
 }
-
+#lista-reserva{
+    height: 100vh;
+    overflow-y: scroll;
+}
 .objetos span{
     display: block;
 }
