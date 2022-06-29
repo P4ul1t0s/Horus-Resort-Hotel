@@ -10,6 +10,8 @@ $('#adicionar').on('click', function() {
     $('#listagem-funcionarios').hide()
     $('#form-adiciona-funcionario').show()
     $('#listar').removeClass('active')
+    $('#editar').removeClass('active')
+    $("#containerEditar").hide()
 })
 
 $('#editar').on('click', listaFuncionarios())
@@ -24,14 +26,14 @@ function listaFuncionarios() {
         url:"/funcionario",
         success: function(arrayFuncionarios){
             for (let funcionario of arrayFuncionarios) {
-                funcionarios +=`<tr>
+                funcionarios +=`<tr id="funcionario_id_${funcionario.id}">
                                     <td> ${funcionario.id}</td>
                                     <td> ${funcionario.nome}</td>
                                     <td> ${funcionario.email}</td> 
                                     <td> ${funcionario.telefone}</td>
                                     <td>
                                         <input type="submit" class="btn btn-warning" value=Editar onclick="editarFuncionario(${funcionario.id})">
-                                        <input type="submit" class="btn btn-warning" value=Deletar onclick="deletarFuncionario(${funcionario.id})">
+                                        <input type="submit" class="btn btn-danger" value=Deletar onclick="deletarFuncionario(${funcionario.id})">
                                     </td>
                                 </tr>`
             }
@@ -79,6 +81,23 @@ function editarFuncionario(id){
             $('#containerEditar').show();
             $('#form-adiciona-funcionario').hide()
             $('#listagem-funcionarios').hide()
+        }
+    })
+}
+
+function deletarFuncionario(id) {
+    $.ajax({
+        type:"DELETE",
+        dataType:"json",
+        url:"/funcionario/delete/" + id,
+        success: function (data) {
+            alert("Funcionário(a) " + data.nome + " excluído(a) com sucesso");
+            $(`#funcionario_id_${data.id}`).remove();
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao deletar o funcionário");
+        },
+        beforeSend: function () {
         }
     })
 }
