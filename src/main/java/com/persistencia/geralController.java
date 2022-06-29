@@ -24,19 +24,10 @@ public class geralController {
 	@RequestMapping("/back/funcionarios")
     public String formCadCliente(){
         return "funcionarios";
-<<<<<<< .merge_file_a02572
-	}
-	@RequestMapping("/back/reserva")
-    public String viewerReserva(){
-        return "reserva";
-	}
-	
-=======
     }
 	
 	@RequestMapping("/back/hospedes")
     public String hospedes(){
         return "hospedes";
     }
->>>>>>> .merge_file_a04796
 }

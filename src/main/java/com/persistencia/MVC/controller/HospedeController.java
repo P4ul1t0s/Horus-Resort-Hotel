@@ -1,35 +1,11 @@
 package com.persistencia.MVC.controller;
 
-<<<<<<< .merge_file_a09032
-import com.persistencia.MVC.model.Hospede;
-import com.persistencia.MVC.repository.HospedeRepository;
-=======
->>>>>>> .merge_file_a11204
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< .merge_file_a09032
-
-@Controller
-@RequestMapping("/hospede")
-public class HospedeController {
-
-    @Autowired
-    HospedeRepository dao;
-    
-    @PostMapping("/salvar")
-    public String salvar(Hospede x){
-        dao.save(x);
-        return "redirect:/hospede";
-    }
-
-    @GetMapping
-    public String formHospede(){
-        return "hospede";
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.persistencia.MVC.model.Hospede;
@@ -60,7 +36,6 @@ public class HospedeController {
         Hospede hospede = getHospedeById(id_Hospede);
         hospedeDao.delete(hospede);
         return "redirect:/back/hospedes";
->>>>>>> .merge_file_a11204
     }
 
 }

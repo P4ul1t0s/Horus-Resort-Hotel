@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
-    <title>Funcionários</title>
+    <link rel="stylesheet" th:href="@{/Styles/reserva.css}">
+    <title>Reservas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -40,11 +40,10 @@
         <div id="div-formularios">
             <form id="form-pesquisa-funcionario">
                 <input type="text" placeholder="Hospedagens">
-                <button  onclick="listar()" >Pesquisar</button>
+                <button  onclick="listar()"><img th:src="@{/assets/icon-search.png}"> </button>
             </form>
 
-            <form action="/reserva/salvar" id="form-funcionario-selecionado" method="post">
-
+            <form id="form-funcionario-selecionado" method="post">
                 <span id="id-funcionario-selecionado">000</span>
                 <fieldset id="fs-dados-gerais">
                     <legend>Cadastro</legend>
@@ -53,15 +52,15 @@
                     <input type="text" name="status" placeholder="Ativa/Finalizada/Pendente">
                     <input type="number" name="adultos" placeholder="Adultos">
                     <input type="number" name="criancas" placeholder="Criancas">
+                    <input type="number" name="quarto" placeholder="Id Quarto" id="idQuarto">
                     <input type="text" name="valorTotal" placeholder="Valor Total">
                 </fieldset>
 
                 <div id="form-buttons">
-                    <button type="submit" id="btCreate">Cadastrar</button>
+                    <button type="submit" id="btCreate" onclick="cadastrar()">Cadastrar</button>
                     <button type="submit" id="btUpdate">Atualizar</button>
                     <button type="submit" id="btDelete">Excluir</button>
                 </div>
-
             </form>
         </div>
     </main>

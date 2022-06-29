@@ -7,11 +7,12 @@ $.ajax({
     success: function(arrayReservas){
         for (let reserva of arrayReservas) {
             listaReservas +=`<li class="objetos">
-                                ${listaReservas.status}
-                                ${listaReservas.checkin}
-                                ${listaReservas.checkout}
-                                ${listaReservas.adultos}
-                                ${listaReservas.valorTotal}
+                                ${reserva.status}
+                                ${reserva.checkin}
+                                ${reserva.checkout}
+                                ${reserva.adultos}
+                                ${reserva.criancas}
+                                ${reserva.valorTotal}
                             </li>`
         }
         $("#lista-reserva").append(listaReservas)
@@ -23,3 +24,8 @@ $.ajax({
         
     }
 })
+
+function cadastrar(){
+    var idQuarto = document.getElementById("idQuarto").value;
+    location.href="/back/reserva/salvar"+idQuarto;
+}
