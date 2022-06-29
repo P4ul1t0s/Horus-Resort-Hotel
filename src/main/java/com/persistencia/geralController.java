@@ -30,9 +30,4 @@ public class geralController {
     public String hospedes(){
         return "hospedes";
     }
-	
-	@RequestMapping("/back/quartos")
-    public String quartos(){
-        return "quartos";
-    }
 }

@@ -1,12 +1,14 @@
 package com.persistencia.MVC.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.lang.NonNull;
 
+@Entity
 public class Quarto {
 
     @Id 
