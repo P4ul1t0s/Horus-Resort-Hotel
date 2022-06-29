@@ -31,6 +31,7 @@ function listaFuncionarios() {
                                     <td> ${funcionario.telefone}</td>
                                     <td>
                                         <input type="submit" class="btn btn-warning" value=Editar onclick="editarFuncionario(${funcionario.id})">
+                                        <input type="submit" class="btn btn-warning" value=Deletar onclick="deletarFuncionario(${funcionario.id})">
                                     </td>
                                 </tr>`
             }
@@ -56,6 +57,7 @@ function editarFuncionario(id){
         dataType:"json",
         url:"/funcionario/" + id,
         success: function (data) {
+            $("#containerEditar").find("#id_funcionario").val(data.id);
             $("#containerEditar").find("#nome").val(data.nome);
             $("#containerEditar").find("#cpf").val(data.cpf);
             $("#containerEditar").find("#cep").val(data.cep);
@@ -65,6 +67,7 @@ function editarFuncionario(id){
             $("#containerEditar").find("#numero").val(data.numero);
             $("#containerEditar").find("#email").val(data.email);
             $("#containerEditar").find("#telefone").val(data.telefone);
+            $("#containerEditar").find("#senha").val(data.senha);
         },
         error: function (data) {
             alert("Ops! algo deu errado ao carregar os dados dos clientes");

@@ -21,9 +21,8 @@ public class FuncionarioController {
     private FuncionarioRepository FuncionarioRepository;
 
     @PostMapping
-    public String adicionar(Funcionario funcionario) {
-        FuncionarioRepository.save(funcionario);
-        return "redirect:/back/funcionarios";
+    public Funcionario adicionar(Funcionario funcionario) {
+        return FuncionarioRepository.save(funcionario);
     }
 
     @GetMapping
