@@ -26,6 +26,13 @@ $.ajax({
 })
 
 function cadastrar(){
+    var checkin = document.getElementById("checkin").value;
+    var checkout = document.getElementById("checkout").value;
+    var adultos = document.getElementById("adultos").value;
+    var criancas = document.getElementById("criancas").value;
+    var status = document.getElementById("status").value;
     var idQuarto = document.getElementById("idQuarto").value;
-    location.href="/back/reserva/salvar"+idQuarto;
+    var valorTotal = document.getElementById("valorTotal").value;
+    
+    location.href="/back/reserva/salvar"+checkin+checkout+adultos+criancas+status+idQuarto+valorTotal
 }
