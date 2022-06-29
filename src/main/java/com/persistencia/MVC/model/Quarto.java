@@ -1,18 +1,20 @@
 package com.persistencia.MVC.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.lang.NonNull;
 
+@Entity
 public class Quarto {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name ="id_Quarto") 
-    private int id;
+    private Long id;
 
     @Column(nullable = false, length = 255)
     private String categoria; // Nome do quarto. Ex.: Suíte Master, Suíte Padrão, Quarto Família...
@@ -34,7 +36,7 @@ public class Quarto {
         this.ocupado = ocupado;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
@@ -54,7 +56,7 @@ public class Quarto {
         this.diaria = diaria;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

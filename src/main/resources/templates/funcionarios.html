@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/Styles/funcionarios.css">
+    <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
     <title>Funcionários</title>
     <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
     <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
@@ -95,7 +95,7 @@
         </div>
     </main> 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../static/Scripts/funcionarios.js"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"}></script>
+    <script th:src="@{/Scripts/funcionarios.js}"></script>
 </body>
 </html>
