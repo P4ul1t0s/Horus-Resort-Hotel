@@ -13,7 +13,6 @@ import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "reserva")
-
 public class Reserva {
 
     @Id
@@ -39,8 +38,7 @@ public class Reserva {
     @Column(nullable = false, length = 10)
     private int adultos;
 
-  
-public Float getValorTotal() {
+    public Float getValorTotal() {
         return valorTotal;
     }
 

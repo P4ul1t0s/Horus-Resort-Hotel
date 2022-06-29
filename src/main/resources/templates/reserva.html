@@ -6,16 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">
     <title>Funcionários</title>
-    <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
-    <!--<link rel="stylesheet" th:href="@{/Styles/funcionarios.css}">-->
-
-    <!-- src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS"
-    th:src="@{/assets/icon-reservas.png}" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
-    <script src="/Scripts/reserva.js"></script>
     </style>
 </head>
 
@@ -28,36 +22,21 @@
         </header>
         <nav>
             <ul>
-                <li><a href="" id="hospedes"><img src="../static/assets/icon-hospedes.png" title="Hóspedes"></a></li>
-                <li><a href="" id="quartos"><img src="../static/assets/icon-quartos.png" title="Quartos"></a></li>
-                <li><a href="" id="reservas"><img src="../static/assets/icon-reservas.png" title="Reservas"></a></li>
-                <li><a href="" id="voltar"><img src="../static/assets/icon-voltar.png" title="Voltar"></a></li>
+                <li><a href="" id="hospedes"><img th:src="@{/assets/icon-hospedes.png}" title="Hóspedes"></a></li>
+                <li><a href="" id="quartos"><img th:src="@{/assets/icon-quartos.png}" title="Quartos"></a></li>
+                <li><a href="" id="reservas"><img th:src="@{/assets/icon-reservas.png}" title="Reservas"></a></li>
+                <li><a href="" id="voltar"><img th:src="@{/assets/icon-voltar.png}" title="Voltar"></a></li>
             </ul>
         </nav>
         <div id="caixa-botao">
-            <button onclick="openOrCloseMenu()"><img src="../static/assets/icon-open-menu.png"></button>
+            <button onclick="openOrCloseMenu()"><img th:src="@{/assets/icon-open-menu.png}"></button>
         </div>
     </aside>
 
     <main>
         <ul id="lista-reserva">
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
-      
-            <li class="objetos">
-                <span id="span-id">001</span>
-                <span id="span-nome">Igor Fernandes</span>
-                <span id="span-cargo">Desenvolvedor Front-End</span>
-                <span id="span-email">igorfernamdez@gmail.com</span>
-                <span id="span-senha">camysama</span>
-            </li>
         </ul>
-        
+
         <div id="div-formularios">
             <form id="form-pesquisa-funcionario">
                 <input type="text" placeholder="Hospedagens">
@@ -65,39 +44,30 @@
             </form>
 
             <form action="/reserva/salvar" id="form-funcionario-selecionado" method="post">
-                <span id="id-funcionario-selecionado">000</span>
 
+                <span id="id-funcionario-selecionado">000</span>
                 <fieldset id="fs-dados-gerais">
                     <legend>Cadastro</legend>
+                    <input type="text" placeholder="Dia de Entrada" name="checkin" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input type="text" placeholder="Dia de Saida" name="checkout" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input type="text" name="status" placeholder="Ativa/Finalizada/Pendente">
+                    <input type="number" name="adultos" placeholder="Adultos">
+                    <input type="number" name="criancas" placeholder="Criancas">
+                    <input type="text" name="valorTotal" placeholder="Valor Total">
+                </fieldset>
 
+                <div id="form-buttons">
+                    <button type="submit" id="btCreate">Cadastrar</button>
+                    <button type="submit" id="btUpdate">Atualizar</button>
+                    <button type="submit" id="btDelete">Excluir</button>
+                </div>
 
-
-            <!-- #region        <input type="text" placeholder="Nome do Hospede" name="Hospede">--> 
-                    <input type="text" placeholder="Dia de Entrada" name="checkin" onfocus="(this.type='date')"
-                        onblur="(this.type='text')">
-                    <input type="text" placeholder="Dia de Saida" name="checkout" onfocus="(this.type='date')"
-                        onblur="(this.type='text')">
-
-<input type="text" name="status" value="status">
-<input type="number" name="criancas" value="criancas">
-<input type="number" name="adultos" value="adultos">
-<input type="text" name="valorTotal" value="valorTotal">
-
-                    <div id="form-buttons">
-                        <button type="submit" id="btCreate">Cadastrar</button>
-                        <button type="submit" id="btUpdate">Atualizar</button>
-                        <button type="submit" id="btDelete">Excluir</button>
-                    </div>
             </form>
-
         </div>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../static/Scripts/funcionarios.js"></script>
-    <script>
-
-    </script>
+    <script th:src="@{/Scripts/reserva.js}"></script>
 </body>
 
 </html>
