@@ -1,5 +1,10 @@
 /*=============TENTANDO FAZER ALGUM CODIGO NO CSS :)============*/
-#tudo{
-
+#divzao{
+    height: 100%;
+    display: flex;
+    border-color: red;
+    background-color: blue;
+}
+form {
     border-color: red;
 }
