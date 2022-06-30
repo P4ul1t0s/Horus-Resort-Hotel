@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,8 +23,9 @@ public class FuncionarioController {
     private FuncionarioRepository FuncionarioRepository;
 
     @PostMapping
-    public Funcionario adicionar(Funcionario funcionario) {
-        return FuncionarioRepository.save(funcionario);
+    public RedirectView adicionar(Funcionario funcionario) {
+         FuncionarioRepository.save(funcionario);
+         return new RedirectView("/back/funcionarios");
     }
 
     @GetMapping
