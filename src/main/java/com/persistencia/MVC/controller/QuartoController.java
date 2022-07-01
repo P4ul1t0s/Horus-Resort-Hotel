@@ -22,7 +22,7 @@ public class QuartoController {
         return "quartos";
     }
 
-    @PostMapping("/salvar")
+    @PostMapping
     public String salvar(Quarto novoQuarto){
         novoQuarto.setOcupado(false);
         repository.save(novoQuarto);
