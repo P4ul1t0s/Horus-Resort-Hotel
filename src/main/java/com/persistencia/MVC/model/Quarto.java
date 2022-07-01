@@ -1,10 +1,17 @@
 package com.persistencia.MVC.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.criteria.Join;
 
 import org.springframework.lang.NonNull;
 
@@ -13,7 +20,6 @@ public class Quarto {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name ="id_Quarto") 
     private Long id;
 
     @Column(nullable = false, length = 255)
