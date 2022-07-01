@@ -13,20 +13,20 @@
                 <div class="card">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#" id="adicionar">Adicionar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="listar">Listar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" id="editar">Editar</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" id="listar">Listar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="adicionar">Adicionar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" id="editar">Editar</a>
+                            </li>
                         </ul>
                     </div>
                     
                     <div class="card-body">
-                        <div class="container" id="listagem-funcionarios" style="display: none">
+                        <div class="container" id="listagem-funcionarios">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -43,7 +43,7 @@
                             </table>
                         </div>
 
-                        <div class="container" id="form-adiciona-funcionario">
+                        <div class="container" id="form-adiciona-funcionario" style="display: none">
                             <form action="/funcionario" id="form-funcionario" method="post">
                     
                                 <div class="form-group">
