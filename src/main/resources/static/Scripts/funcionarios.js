@@ -1,17 +1,17 @@
 $('#listar').on('click', function() {
     $('#adicionar').removeClass('active')
+    $('#listar').addClass('active')
     $('#listagem-funcionarios').show()
     $('#form-adiciona-funcionario').hide()
-    $('#listar').addClass('active')
 })
 
 $('#adicionar').on('click', function() {
     $('#adicionar').addClass('active')
-    $('#listagem-funcionarios').hide()
-    $('#form-adiciona-funcionario').show()
     $('#listar').removeClass('active')
     $('#editar').removeClass('active')
+    $('#listagem-funcionarios').hide()
     $("#containerEditar").hide()
+    $('#form-adiciona-funcionario').show()
 })
 
 $('#editar').on('click', listaFuncionarios())
@@ -41,12 +41,12 @@ function listaFuncionarios() {
         },
         beforeSend: function(){
             $('#listar').on('click', function() {
+                $('#listar').addClass('active')
                 $('#adicionar').removeClass('active')
+                $('#editar').removeClass('active')
                 $('#listagem-funcionarios').show()
                 $('#form-adiciona-funcionario').hide()
-                $('#listar').addClass('active')
                 $('#containerEditar').hide()
-                $('#editar').removeClass('active')
             })
         }
     })
@@ -72,7 +72,7 @@ function editarFuncionario(id){
             $("#containerEditar").find("#senha").val(data.senha);
         },
         error: function (data) {
-            alert("Ops! algo deu errado ao carregar os dados dos clientes");
+            alert("Ops! algo deu errado ao carregar os dados dos funcionários");
         },
         beforeSend: function () {
             $('#editar').addClass('active');
