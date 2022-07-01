@@ -89,7 +89,7 @@ function deletarFuncionario(id) {
     $.ajax({
         type:"DELETE",
         dataType:"json",
-        url:"/funcionario/delete/" + id,
+        url:"/funcionario/" + id,
         success: function (data) {
             alert("Funcionário(a) " + data.nome + " excluído(a) com sucesso");
             $(`#funcionario_id_${data.id}`).remove();

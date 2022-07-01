@@ -39,7 +39,7 @@ public class FuncionarioController {
         return funcionarioOpcional.get();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public Funcionario excluirPorID(@PathVariable Integer id){
         Optional<Funcionario> funcionarioOpcional = FuncionarioRepository.findById(id);
         FuncionarioRepository.delete(funcionarioOpcional.get());
