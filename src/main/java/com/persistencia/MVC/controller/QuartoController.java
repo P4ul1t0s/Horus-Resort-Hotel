@@ -31,8 +31,9 @@ public class QuartoController {
     }
 
     @GetMapping("/deletar/{id}")
-    public String delete(Quarto quarto){
-        repository.delete(quarto);
+    public String delete(Quarto novoQuarto){
+        novoQuarto.setOcupado(false);
+        repository.delete(novoQuarto);
         return "redirect:/back/quartos";
     }
 }
