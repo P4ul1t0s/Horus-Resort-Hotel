@@ -1,44 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" th:href="@{/Styles/hospede.css}">
-        <title>Hóspede</title>
-    </head>
-    <body>
-        <div id="divzao">
-            <div id="cabecalhoHospede">
-                ========coisas do cabeçalho======                                    
-            </div>
-            <main id="form-hospede">
-                <form action="/hospede" method="POST">
-                    <input type="text" placeholder="nome" name="nome">
-                    <input type="text" placeholder="cpf" name="cpf">
-                    <input type="text" placeholder="telefone" name="telefone">
-                    <input type="text" placeholder="email" name="email">
-                    <input type="text" placeholder="senha" name="senha"> 
-                    <input type="submit">
-                </form>
-            </main>
-        </div>
-    </body>
-</html>
-<!--<html>
-    <head>
-        <title>Hospedes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" th:href="@{/Styles/hospede.css}">
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        https://fonts.google.com/icons
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <title>Hospedes</title>
     </head>
     <body>
         <button type="button" id="cadHospede" onclick="cadastrar()" >Hospede</button>
         <main>
             <section id="menu">
-                <div id="bt_add_hospede" onclick="addHospede()" class="bt_menu"><span class="material-symbols-outlined">person_add</span></div>
+                <div id="bt_add_hospede" onclick="addHospede()" class="bt_menu">
+                    <span class="material-symbols-outlined">person_add</span>
+                </div>
             </section>
             <div id="container_hospede">
 
@@ -46,10 +22,8 @@
             <section id="containerCadHospede" class="hidden">
                 <form action="/hosp" method="post">
                     <h1 class="title">CADASTRO DE HOSPEDES
-                        <span onclick="fechar()" class="material-symbols-outlined">
-                        close
-                    </span>
-                </h1>
+                        <span onclick="fechar()" class="material-symbols-outlined">close</span>
+                    </h1>
                     <input type="text" placeholder="nome" name="nome">
                     <input type="text" placeholder="cpf" name="cpf">
                     <input type="text" placeholder="telefone" name="telefone">
@@ -60,5 +34,7 @@
                 </form>
             </section>
         </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../static/Scripts/hospede.js"></script>
     </body>
-</html>-->
+</html>
