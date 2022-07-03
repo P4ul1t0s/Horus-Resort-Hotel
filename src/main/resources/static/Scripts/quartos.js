@@ -8,12 +8,11 @@ $.ajax({
         for (let quarto of arrayDeQuartos) {
 
             listaQuartos +=`<li class="objetos">
-                                ${quarto.id}
-                                ${quarto.categoria}
-                                ${quarto.capacidadeAdultos}
-                                ${quarto.capacidadeCriancas}
-                                ${quarto.diaria}
-                                ${quarto.ocupado}
+                                <p>Id: ${quarto.id}</p> 
+                                <p>Categoria: ${quarto.categoria}</p> 
+                                <p>Capacidade de adultos: ${quarto.capacidadeAdultos}</p> 
+                                <p>Capacidade de crianças: ${quarto.capacidadeCriancas}</p> 
+                                <p>Valor da diária: ${quarto.diaria}</p>
                             </li>`
         }
         $("#lista-quartos").append(listaQuartos)

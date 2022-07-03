@@ -1,6 +1,15 @@
 :root{
     font-size: 62.5%;
     font-family: 'DM Sans', sans-serif;
+
+    --header-color: #FFD24C;
+    --body-bg: #F2F2F2;
+    --link-color: #184BB1;
+    --link-color-hover: #3183F7;
+    --paragraph-color: #092476;
+    --title-color: #092476;
+    --form-bg: #E6A341;
+    --form-text: #0653C4;
 }
 
 *{
@@ -13,7 +22,7 @@
 
 main{
     display: grid;
-    background-color: antiquewhite;
+    background-color: var(--body-bg);
     grid-template-columns: 80vw 1fr;
     
     height: 90vh;
@@ -22,10 +31,13 @@ main{
 h1{
     font-size: 3rem;
     height: 10vh;
+    color: var(--title-color);
+    text-align: center;
+    line-height: 10vh;
+    background-color: var(--header-color);
 }
 
 #section1{
-    background-color: aqua;
 }
 
 #lista-quartos{
@@ -34,11 +46,11 @@ h1{
 }
 
 .bloco-quarto{
-    display: flex;
-    border: 1px solid red;
+    margin-top: 4rem;
     border-radius: .5rem;
     width: 50vw;
 
+    border: 1px solid red;
     margin-inline: auto;
     margin-bottom: 8rem;
 
@@ -49,17 +61,10 @@ h1{
     font-size: 1.8rem;
 }
 
-.bloco-quarto img{
-    height: 100%;
-    width: 40%;
-    background-size: cover;
-}
-
 #section2{
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: blueviolet;
 }
 
 
@@ -67,7 +72,7 @@ h1{
     display: block;
     padding: 1rem 1.5rem;
     border-radius: .5rem;
-    background-color: aqua;
+    background-color: var(--header-color);
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;

@@ -45,7 +45,7 @@
                         Crianças <br>
                         <input type="number" id="inputCriancas" name="inputCriancas" min="0" max="10" value="0"> 
                     </label>
-                    <a href="#">Reservar</a>
+                    <a id="btReservar" onclick="procurarQuartos()">Reservar</a>
                 </form>
             </nav>
         </div>
@@ -197,6 +197,19 @@
             distance: '30px',
             duration: 900
         }).reveal(`#section-home, #section-servicos, #section-quartos, #section-localizacao`);
+
+        function procurarQuartos(){
+
+            const checkin = document.getElementById("inputCheckin").value
+            const checkout = document.getElementById("inputCheckout").value
+            const adultos = document.getElementById("inputAdultos").value
+            const criancas = document.getElementById("inputCriancas").value
+
+            location.href=`/reserva?checkin=${checkin}&checkout=${checkout}&adultos=${adultos}&criancas=${criancas }`
+
+}
+
+        
     </script>
 </body>
 </html>
