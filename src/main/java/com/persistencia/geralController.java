@@ -30,4 +30,9 @@ public class geralController {
     public String hospedes(){
         return "hospedes";
     }
+	
+	@RequestMapping("/reserva")
+    public String quartos(){
+        return "frontQuartos";
+    }
 }
