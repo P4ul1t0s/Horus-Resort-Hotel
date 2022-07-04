@@ -19,7 +19,7 @@ import com.persistencia.MVC.repository.ReservaRepository;
 //Nesta classe ficam os endereços pra busca no banco
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class ApiGeral {
     
     @Autowired

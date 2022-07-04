@@ -49,23 +49,27 @@ $.ajax({
     }
 })
 
-function editar(id){
+
+
+function getId(){
+    const id = document.querySelector("#id-reserva").innerText
+    console.log(id)
+    deletar(id)
+}
+
+
+function deletar(id){
     $.ajax({
-        type:"GET",
+        type:"DELETE",
         dataType:"json",
-        url:"/api/reservas" + id,
+        url:"/back/reserva/delete/" + id,
         success: function (data) {
-            addCliente();
-            $("#containerCadCliente").find("#id_cliente").val(data.id);
-            $("#containerCadCliente").find("#nome").val(data.nome);
-            $("#containerCadCliente").find("#email").val(data.email);
+            alert("Reserva ID " + id + " excluída com sucesso");
         },
         error: function (data) {
-            alert("Ops! algo deu errado ao carregar os dados dos clientes");
+            alert("Ops! algo deu errado ao deletar os dados da reserva "+id);
         },
         beforeSend: function () {
         }
     })
 }
-
-
