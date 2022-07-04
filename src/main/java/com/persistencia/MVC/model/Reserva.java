@@ -41,10 +41,6 @@ public class Reserva {
     @Column(nullable = false, length = 10)
     private int adultos;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Quarto quarto;
-
     public Float getValorTotal() {
         return valorTotal;
     }
@@ -102,8 +98,4 @@ public class Reserva {
     public void setAdultos(int adultos) {
         this.adultos = adultos;
     }
-
-    public void setQuarto(Optional<Quarto> findById) {
-    }
-
 }

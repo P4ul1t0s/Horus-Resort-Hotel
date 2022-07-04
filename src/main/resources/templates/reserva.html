@@ -43,8 +43,8 @@
                 <button  onclick="listar()"><img th:src="@{/assets/icon-search.png}"> </button>
             </form>
 
-            <form id="form-funcionario-selecionado" method="post">
-                <span id="id-funcionario-selecionado">000</span>
+            <form action="/back/reserva/salvar" id="form-funcionario-selecionado" method="post">
+                <span id="id-reserva">000</span>
                 <fieldset id="fs-dados-gerais">
                     <legend>Cadastro</legend>
                     <input type="text" placeholder="Dia de Entrada" name="checkin" onfocus="(this.type='date')" onblur="(this.type='text')">
@@ -52,13 +52,12 @@
                     <input type="text" name="status" placeholder="Ativa/Finalizada/Pendente">
                     <input type="number" name="adultos" placeholder="Adultos">
                     <input type="number" name="criancas" placeholder="Criancas">
-                    <input type="number" name="quarto" placeholder="Id Quarto" id="idQuarto">
                     <input type="text" name="valorTotal" placeholder="Valor Total">
+                    <input type="hidden" name="id" placeholder="id">
                 </fieldset>
 
                 <div id="form-buttons">
-                    <button type="submit" id="btCreate" onclick="cadastrar()">Cadastrar</button>
-                    <button type="submit" id="btUpdate">Atualizar</button>
+                    <button type="submit" id="btCreate">Salvar</button>
                     <button type="submit" id="btDelete">Excluir</button>
                 </div>
             </form>

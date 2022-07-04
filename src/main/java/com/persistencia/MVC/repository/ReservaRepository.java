@@ -6,6 +6,6 @@ import com.persistencia.MVC.model.Reserva;
 
 @Repository
 
-public interface ReservaRepository extends  JpaRepository <Reserva, String> {
+public interface ReservaRepository extends  JpaRepository <Reserva, Integer> {
 
 }

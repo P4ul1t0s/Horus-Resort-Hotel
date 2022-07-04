@@ -24,11 +24,8 @@ public class ReservaController {
     @Autowired
     private ReservaRepository ReservaRepository;
 
-    private QuartoRepository quartoRepository;
-
-    @PostMapping("/salvar/{idQuarto}")
-    public String adicionar(Reserva reserva, @PathVariable("idQuarto") Integer idQuarto){
-        reserva.setQuarto(quartoRepository.findById(idQuarto));
+    @PostMapping("/salvar")
+    public String adicionar(Reserva reserva){
         ReservaRepository.save(reserva);
         return "redirect:/back/reserva";
     }
