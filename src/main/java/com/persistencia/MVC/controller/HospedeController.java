@@ -17,33 +17,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-
 @RestController
 @RequestMapping("/hospede")
 public class HospedeController {
 
     @Autowired
-    HospedeRepository dao;
+    private HospedeRepository hospedeRepository;
     
-   @PostMapping
-    public String salvar(Hospede x){
-        dao.save(x);
-        return "redirect:/hospede";
+    @PostMapping
+    public Hospede adicionar(Hospede hospede){
+        return hospedeRepository.save(hospede);
     }
+
     @GetMapping
-    public List<Hospede> listarTudo(){
-        return dao.findAll();
+    public List<Hospede> listar(){
+        return hospedeRepository.findAll();
     }
+
     @GetMapping("/{id}")
     public Hospede buscarPorId(@PathVariable Long id){
-        Optional<Hospede> hospedeOpcional = dao.findById(id);
+        Optional<Hospede> hospedeOpcional = hospedeRepository.findById(id);
         return hospedeOpcional.get();
     }
 
     @DeleteMapping("/delete/{id}")
     public Hospede excluirPorID(@PathVariable Long id){
-        Optional<Hospede> hospedeOpcional = dao.findById(id);
-        dao.delete(hospedeOpcional.get());
+        Optional<Hospede> hospedeOpcional = hospedeRepository.findById(id);
+        hospedeRepository.delete(hospedeOpcional.get());
         return hospedeOpcional.get();
     }
+    
 }

@@ -1,71 +1,82 @@
-const menuExpandidoH = document.querySelector(".expandidoH")
-        const menuComprimidoH = document.querySelector(".comprimidoH")
-        const menuH = document.querySelector(".menuH")
-
-        function openOrCloseMenu(){
-            if(menuH.getAttribute("class").includes("comprimidoH")){
-                openMenu()
-            } else{
-                closeMenu()
-            }
-        }        
-        
-        function openMenu(){
-            menuComprimidoH.classList.remove("comprimidoH")
-            menuComprimidoH.classList.add("expandidoH")
-
-            document.querySelector(".menuH h3").innerText = "Hórus System"
-            document.querySelector(".menuH h4").innerText = "nome Hospede"
-            document.querySelector(".menuH h5").innerText = "32/02/2022 - 25:04"
-        }
-
-        function closeMenu(){
-            menuComprimidoH.classList.remove("expandidoH")
-            menuComprimidoH.classList.add("comprimidoH")
-
-            document.querySelector(".menuH h3").innerText = ""
-            document.querySelector(".menuH h4").innerText = ""
-            document.querySelector(".menuH h5").innerText = ""
-        }
-        
-        document.querySelectorAll(".objetosH").forEach(blocoHospede =>{
-            let nomeHospede = blocoHospede.firstElementChild.nextElementSibling.innerText
-            let cpfHospede = blocoHospede.firstElementChild.nextElementSibling.innerText
-            let telefoneHospede = blocoHospede.firstElementChild.nextElementSibling.innerText
-            let emailHospede = blocoHospede.firstElementChild.nextElementSibling.innerText
-            let senhaHospede = blocoHospede.firstElementChild.nextElementSibling.innerText
-        
-            blocoHospede.addEventListener("click", ()=>{
-                document.querySelector("#selected-nome").value = nomeHospede
-                document.querySelector("#selected-cpf").value = cpfHospede
-                document.querySelector("#selected-email").value = telefoneHospede
-                document.querySelector("#selected-email").value = emailHospede
-                document.querySelector("#selected-senha").value = senhaHospede
+function listar(){
+    const container = $("main").find("container_hospede");
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/hospede",
+        success: function (data) {
+            $.each(data,function(i, value){
+                let linha = $("<div class='linha'></div>")
+                $("<div class='item nome'>" + value.nome + "</div>").appendTo($(linha));
+                $("<div class='item email'>" + value.email + "</div>").appendTo($(linha));
+                $(`<div class='item remover'><a href="#" onclick="deletar(${value.id})"><span class='material-symbols-outlined'>delete</span></a></div>`).appendTo($(linha));
+                $(`<div class='item editar'><a href="#"  onclick="editar(${value.id})"><span class="material-symbols-outlined">edit</span></a></div>`).appendTo($(linha));
+                $(linha).attr("_id",value.id);
+                $(linha).appendTo("#container_hospede");
             })
-        })
-    
+            
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao carregar os dados dos hospedes")
+        },
+        beforeSend: function () {
+            limpar();
+            let linhaTitulo = $("<div class='linha'></div>")
+            $("<div class='titulo'>Nome</div>").appendTo($(linhaTitulo));
+            $("<div class='titulo'>E-mail</div>").appendTo($(linhaTitulo));
+            $("<div class='titulo'></div>").appendTo($(linhaTitulo));
+            $("<div class='titulo'></div>").appendTo($(linhaTitulo));
 
-//======================AJAX==============================
-let hospede = ""
-
-$.ajax({
-    type: "GET", 
-    dataType: "json", 
-    url:"/api/hospede",
-    success: function(arrayHospede){
-        for (let hospede of arrayHospede) {
-            hospede +=`<li class="objetos">
-                                ${hospede.nome}
-                            
-                            
-                            </li>`
+            $(linhaTitulo).appendTo("#container_hospede");
         }
-        $("#lista-hospede").append(hospede)
-    },
-    error: function(){
-        
-    },
-    beforeSend: function(){
-        
-    }
-})
+    })
+}
+
+function limpar(){
+    $("#container_hospede").find(".linha").remove();
+}
+
+function deletar(id){
+    $.ajax({
+        type:"DELETE",
+        dataType:"json",
+        url:"hospede/delete/" + id,
+        success: function (data) {
+            alert("Hospede " + data.nome + " excluido com sucesso");
+            $("#container_hospede").find(`.linha[_id=${data.id}]`).remove();
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao deletar os dados dos Hospedes");
+        },
+        beforeSend: function () {
+        }
+    })
+}
+
+function addHospede(){
+    $("#containerCadHospede").removeClass("hidden");
+    $("body").addClass("overlay");
+}
+function editar(id){
+    $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"/hospede/" + id,
+        success: function (data) {
+            addHospede();
+            $("#containerCadHospede").find("#id_hospede").val(data.id);
+            $("#containerCadHospede").find("#nome").val(data.nome);
+            $("#containerCadHospede").find("#email").val(data.email);
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao carregar os dados dos hospedes");
+        },
+        beforeSend: function () {
+        }
+    })
+}
+
+function fechar(){
+    $("#containerCadHospede").addClass("hidden");
+    $("body").removeClass("overlay");
+}

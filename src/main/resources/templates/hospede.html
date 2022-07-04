@@ -1,40 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" th:href="@{/Styles/hospede.css}">
-        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        <title>Hospedes</title>
+        <title>CADASTRO DE HOSPEDE</title>
     </head>
     <body>
-        <button type="button" id="cadHospede" onclick="cadastrar()" >Hospede</button>
-        <main>
-            <section id="menu">
-                <div id="bt_add_hospede" onclick="addHospede()" class="bt_menu">
-                    <span class="material-symbols-outlined">person_add</span>
-                </div>
-            </section>
-            <div id="container_hospede">
-
-            </div>
-            <section id="containerCadHospede" class="hidden">
-                <form action="/hosp" method="post">
-                    <h1 class="title">CADASTRO DE HOSPEDES
-                        <span onclick="fechar()" class="material-symbols-outlined">close</span>
-                    </h1>
-                    <input type="text" placeholder="nome" name="nome">
-                    <input type="text" placeholder="cpf" name="cpf">
-                    <input type="text" placeholder="telefone" name="telefone">
-                    <input type="text" placeholder="email" name="email">
-                    <input type="text" placeholder="senha" name="senha">
-                    <input class="bt_form" type="submit" value="Enviar" />
-                    <input class="bt_form" type="reset" value="Limpar" />
-                </form>
-            </section>
-        </main>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="../static/Scripts/hospede.js"></script>
+        <h1>CADASTRO DE HOSPEDE</h1>
+        <form action="/hospede" method="post">
+            <label>Nome:
+                <input type="text" name="nome" />
+            </label>
+            <label>E-mail:
+                <input type="text" name="email" />
+            </label>
+            <input type="submit" value="Enviar" />
+        </form>
     </body>
 </html>
