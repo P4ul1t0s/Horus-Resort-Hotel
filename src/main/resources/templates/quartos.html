@@ -47,21 +47,21 @@
                 <button onclick="listar()" type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
             </form>
 
-            <form action="/back/quartos/salvar" id="form-quarto-selecionado" method="POST">
+            <form action="/back/quartos" id="form-quarto-selecionado" method="POST">
                 <span id="id-quarto-selecionado">000</span>
+                <input type="hidden" id="idHidden" name="id">
 
                 <fieldset id="fs-dados-gerais">
                     <legend>Dados Gerais</legend>
-                    <input type="text" placeholder="Categoria" name="categoria">
-                    <input type="text" placeholder="Capacidade adultos" name="capacidadeAdultos">
-                    <input type="text" placeholder="Capacidade crianças" name="capacidadeCriancas">
-                    <input type="text" placeholder="Diária (R$)" name="diaria">
+                    <input type="text" placeholder="Categoria" name="categoria" id="categoria_quarto">
+                    <input type="text" placeholder="Capacidade adultos" name="capacidadeAdultos" id="capacidadeA_quarto">
+                    <input type="text" placeholder="Capacidade crianças" name="capacidadeCriancas" id="capacidadeC_quarto">
+                    <input type="text" placeholder="Diária (R$)" name="diaria" id="diaria_quarto">
                 </fieldset>
 
                 <div id="form-buttons">
                     <button type="submit" id="btCreate">Cadastrar</button>
                     <button type="submit" id="btUpdate">Atualizar</button>
-                    <button type="submit" id="btDelete">Excluir</button>
                 </div>
             </form>
             
