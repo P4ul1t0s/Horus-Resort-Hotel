@@ -14,7 +14,6 @@ $.ajax({
                                 <div class="criancas">Crianças (qtd): <span>${quarto.capacidadeCriancas}</span></div>
                                 <div class="diaria">Valor diária: R$<span>${quarto.diaria}</span></div>
                                 Ocupação: ${quarto.ocupado}<br>
-                                <a href='/back/quartos/deletar/${quarto.id}'>Excluir</a>
                             </li>`
         }
         $("#lista-quartos").append(listaQuartos)
@@ -34,4 +33,13 @@ function editarQuarto(id_quarto){
     $("#capacidadeA_quarto").val($(`li[id_=${id_quarto}].objetos`).find(".adultos span").text())
     $("#capacidadeC_quarto").val($(`li[id_=${id_quarto}].objetos`).find(".criancas span").text())
     $("#diaria_quarto").val($(`li[id_=${id_quarto}].objetos`).find(".diaria span").text())
+}
+
+function limpar(){
+    $("#id-quarto-selecionado").html("")
+    $("#idHidden").val("")
+    $("#categoria_quarto").val("")
+    $("#capacidadeA_quarto").val("")
+    $("#capacidadeC_quarto").val("")
+    $("#diaria_quarto").val("")
 }
