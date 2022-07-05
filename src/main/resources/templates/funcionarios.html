@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/Styles/funcionarios.css">
     <title>Funcionários</title>
@@ -37,50 +38,83 @@
             <form action="/funcionario" method="GET">
                 
             </form>
+                        <div class="container" id="form-adiciona-funcionario" style="display: none">
+                            <form action="/funcionario" id="form-funcionario" method="post">
+                    
+                                <div class="form-group">
+                                    <legend>Dados Gerais</legend>
+                                    <input type="text" placeholder="Nome" name="nome">
+                                    <input type="text" placeholder="CPF" name="cpf">
+                                    <input type="text" placeholder="Senha" name="senha">
+                                </div>
 
-            <form action="/funcionario" id="form-funcionario-selecionado" method="post">
-                
-                <fieldset id="fs-dados-gerais">
-                    <legend>Dados Gerais</legend>
-                    <input type="text" placeholder="Nome" name="nome">
-                    <input type="text" placeholder="CPF" name="cpf">
-                    <input type="text" placeholder="Senha" name="senha">
-                </fieldset>
+                                <div class="form-group">
+                                    <legend>Endereço</legend>
+                                    <input type="text" placeholder="CEP" name="cep">
+                                    <input type="text" placeholder="Cidade" name="cidade">
+                                    <input type="text" placeholder="Bairro" name="bairro">
+                                    <input type="text" placeholder="Rua" name="rua">
+                                    <input type="text" placeholder="Número" name="numero">
+                                </div>
 
-                <fieldset id="fs-endereco">
-                    <legend>Endereço</legend>
-                    <input type="text" placeholder="CEP" name="cep">
-                    <input type="text" placeholder="Cidade" name="cidade">
-                    <input type="text" placeholder="Bairro" name="bairro">
-                    <input type="text" placeholder="Rua" name="rua">
-                    <input type="text" placeholder="Número" name="numero">
-                </fieldset>
+                                <div class="form-group">
+                                    <legend>Contato</legend>
+                                    <input type="email" placeholder="Email" name="email">
+                                    <input type="text" placeholder="Telefone" name="telefone">
+                                </div>
 
-                <fieldset id="fs-contato">
-                    <legend>Contato</legend>
-                    <input type="email" placeholder="Email" name="email">
-                    <input type="text" placeholder="Telefone" name="telefone">
-                </fieldset>
+                                
+                                <div class="form-group">
+                                    <label>Usuário administrador?</label> 
+                                    <label for="true"> Sim
+                                        <input type="radio" name="admin" value="true" id="true">
+                                    </label>
+                                    <label for="false"> Não
+                                        <input type="radio" name="admin" value="false" id="false">
+                                    </label>
+                                </div>
 
-                <fieldset id="fs-admin">
-                    <legend>Usuário administrador?</legend>
-                    <label for="true"> Sim
-                        <input type="radio" name="admin" value="true" id="true">
-                    </label>
-                    <label for="false"> Não
-                        <input type="radio" name="admin" value="false" id="false">
-                    </label>
-                </fieldset>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success" id="btCreate">Cadastrar</button>
+                                    <input class="btn btn-warning" type="reset" value="Limpar"/>
+                                </div>
+                            </form>
 
-                <div id="form-buttons">
-                    <button type="submit" id="btCreate">Cadastrar</button>
-                </div>
-            </form>
-            
-        </div>
-    </main> 
+                        </div>
+                        <section id="containerEditar" style="display: none">
+                            <form action="/funcionario" method="post">
+                                <div class="form-group">
+                                    <legend>Dados Gerais</legend>
+                                    <input type="hidden" id="id_funcionario" name="id">
+                                    <input type="text" placeholder="Nome" id="nome" name="nome">
+                                    <input type="text" placeholder="CPF" id="cpf" name="cpf">
+                                    <input type="text" placeholder="Senha" id="senha" name="senha">
+                                </div>
+                                <div class="form-group">
+                                    <legend>Endereço</legend>
+                                    <input type="text" placeholder="CEP" name="cep" id="cep">
+                                    <input type="text" placeholder="Cidade" name="cidade" id="cidade">
+                                    <input type="text" placeholder="Bairro" name="bairro" id="bairro">
+                                    <input type="text" placeholder="Rua" name="rua" id="rua">
+                                    <input type="text" placeholder="Número" name="numero" id="numero">
+                                </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../static/Scripts/funcionarios.js"></script>
-</body>
+                                <div class="form-group">
+                                    <legend>Contato</legend>
+                                    <input type="email" placeholder="Email" id="email" name="email">
+                                    <input type="text" placeholder="Telefone" id="telefone" name="telefone">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success" id="btSlavar">Salvar</button>
+                                </div>
+                            </form>
+                        </section>    
+                    </div>    
+                </div>    
+            </div>
+        </main> 
+    </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script th:src="@{/Scripts/funcionarios.js}"></script>

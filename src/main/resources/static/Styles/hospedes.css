@@ -127,7 +127,7 @@
 }
 
 .expandido #hospedes::after{
-    content: "Hóspedes";
+    content: "Funcionários";
     font-size: 2.5rem;
 }
 
@@ -162,14 +162,11 @@ main > div{
 
 
 /*=========================== LISTA OBJETOS ==========================*/
-#lista-funcionarios{
+#lista-hospedes{
     height: 100vh;
     overflow-y: scroll;
 }
-#lista-reserva{
-    height: 100vh;
-    overflow-y: scroll;
-}
+
 .objetos span{
     display: block;
 }
@@ -205,7 +202,7 @@ main > div{
 }
 
 /*=========================== FORMULARIO PESQUISA ==========================*/
-#form-pesquisa-funcionario{
+#form-pesquisa-hospede{
     display: flex;
     justify-content: center;
 
@@ -219,30 +216,30 @@ main > div{
     border-radius: .5rem;
 }
 
-#form-pesquisa-funcionario input{
+#form-pesquisa-hospede input{
     border: none;
     outline: none;
     background-color: var(--input-bg-color);
     width: 80%;
     font-size: 1.8rem;
 }
-#form-pesquisa-funcionario button{
+#form-pesquisa-hospede button{
     background: none;
     border: none;
     margin-block: .5rem;
 }
 
-#form-pesquisa-funcionario button:hover{
+#form-pesquisa-hospede button:hover{
     cursor: pointer;
 }
 
-#form-pesquisa-funcionario button img{
+#form-pesquisa-hospede button img{
     height: 3rem;
 }
 
 /*=========================== FORMULARIO DE CADASTRO ==========================*/
 
-#form-funcionario-selecionado{
+#form-hospede-selecionado{
     display: flex;
     flex-direction: column;
 
@@ -254,7 +251,7 @@ main > div{
     margin-inline: 1.5vw;
 }
 
-#form-funcionario-selecionado fieldset{
+#form-hospede-selecionado fieldset{
     text-align: center;
 
     margin-block: 1rem;
@@ -262,19 +259,19 @@ main > div{
     border: none;
 }
 
-#form-funcionario-selecionado fieldset legend{
+#form-hospede-selecionado fieldset legend{
     font-weight: bold;
     font-size: 2rem;
 }
 
-#id-funcionario-selecionado{
+#id-hospede-selecionado{
     font-size: 3rem;
     text-align: center;
     display: inline-block;
     margin: 1rem 0;
 }
 
-#form-funcionario-selecionado input:not(input[name="admin"]){
+#form-hospede-selecionado input:not(input[name="admin"]){
     padding: .4rem;
     padding-left: .8rem;
     margin-block: .8rem;

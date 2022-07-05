@@ -1,71 +1,103 @@
-const menuExpandido = document.querySelector(".expandido")
-        const menuComprimido = document.querySelector(".comprimido")
-        const menu = document.querySelector(".menu")
+$('#listar').on('click', function() {
+    $('#adicionar').removeClass('active')
+    $('#listar').addClass('active')
+    $('#listagem-funcionarios').show()
+    $('#form-adiciona-funcionario').hide()
+})
 
-        function openOrCloseMenu(){
-            if(menu.getAttribute("class").includes("comprimido")){
-                openMenu()
-            } else{
-                closeMenu()
-            }
-        }        
-        
-        function openMenu(){
-            menuComprimido.classList.remove("comprimido")
-            menuComprimido.classList.add("expandido")
+$('#adicionar').on('click', function() {
+    $('#adicionar').addClass('active')
+    $('#listar').removeClass('active')
+    $('#editar').removeClass('active')
+    $('#listagem-funcionarios').hide()
+    $("#containerEditar").hide()
+    $('#form-adiciona-funcionario').show()
+})
 
-            document.querySelector(".menu h3").innerText = "Hórus System"
-            document.querySelector(".menu h4").innerText = "nome funcionario"
-            document.querySelector(".menu h5").innerText = "32/05/2022 - 21:04"
-        }
-
-        function closeMenu(){
-            menuComprimido.classList.remove("expandido")
-            menuComprimido.classList.add("comprimido")
-
-            document.querySelector(".menu h3").innerText = ""
-            document.querySelector(".menu h4").innerText = ""
-            document.querySelector(".menu h5").innerText = ""
-        }
-        
-        document.querySelectorAll(".objetos").forEach(blocoFuncionario =>{
-            let idFuncionario = blocoFuncionario.firstElementChild.innerText
-            let nomeFuncionario = blocoFuncionario.firstElementChild.nextElementSibling.innerText
-            let cargoFuncionario = blocoFuncionario.firstElementChild.nextElementSibling.nextElementSibling.innerText
-            let emailFuncionario = blocoFuncionario.lastElementChild.previousElementSibling.innerText
-            let senhaFuncionario = blocoFuncionario.lastElementChild.innerText
-            
-            blocoFuncionario.addEventListener("click", ()=>{
-                document.querySelector("#selected-id").innerText = idFuncionario
-                document.querySelector("#selected-nome").value = nomeFuncionario
-                document.querySelector("#selected-cargo").value = cargoFuncionario
-                document.querySelector("#selected-email").value = emailFuncionario
-                document.querySelector("#selected-senha").value = senhaFuncionario
-            })
-        })//end for each
-
+$('#editar').on('click', listaFuncionarios())
 
 //======================AJAX==============================
-let funcionarios = ""
 
-$.ajax({
-    type: "GET", 
-    dataType: "json", 
-    url:"/api/funcionarios",
-    success: function(arrayFuncionarios){
-        for (let funcionario of arrayFuncionarios) {
-            funcionarios +=`<li class="objetos">
-                                ${funcionario.nome}
-                            
-                            
-                            </li>`
+function listaFuncionarios() {
+    let funcionarios = ""
+    $.ajax({
+        type: "GET", 
+        dataType: "json", 
+        url:"/funcionario",
+        success: function(arrayFuncionarios){
+            for (let funcionario of arrayFuncionarios) {
+                funcionarios +=`<tr id="funcionario_id_${funcionario.id}">
+                                    <td> ${funcionario.id}</td>
+                                    <td> ${funcionario.nome}</td>
+                                    <td> ${funcionario.email}</td> 
+                                    <td> ${funcionario.telefone}</td>
+                                    <td>
+                                        <input type="submit" class="btn btn-warning" value=Editar onclick="editarFuncionario(${funcionario.id})">
+                                        <input type="submit" class="btn btn-danger" value=Deletar onclick="deletarFuncionario(${funcionario.id})">
+                                    </td>
+                                </tr>`
+            }
+            $("#tabela-funcionarios").append(funcionarios)
+        },
+        beforeSend: function(){
+            $('#listar').on('click', function() {
+                $('#listar').addClass('active')
+                $('#adicionar').removeClass('active')
+                $('#editar').removeClass('active')
+                $('#listagem-funcionarios').show()
+                $('#form-adiciona-funcionario').hide()
+                $('#containerEditar').hide()
+            })
         }
-        $("#lista-funcionarios").append(funcionarios)
-    },
-    error: function(){
-        
-    },
-    beforeSend: function(){
-        
-    }
-})
+    })
+}
+
+function editarFuncionario(id){
+    
+    $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"/funcionario/" + id,
+        success: function (data) {
+            $("#containerEditar").find("#id_funcionario").val(data.id);
+            $("#containerEditar").find("#nome").val(data.nome);
+            $("#containerEditar").find("#cpf").val(data.cpf);
+            $("#containerEditar").find("#cep").val(data.cep);
+            $("#containerEditar").find("#cidade").val(data.cidade);
+            $("#containerEditar").find("#bairro").val(data.bairro);
+            $("#containerEditar").find("#rua").val(data.rua);
+            $("#containerEditar").find("#numero").val(data.numero);
+            $("#containerEditar").find("#email").val(data.email);
+            $("#containerEditar").find("#telefone").val(data.telefone);
+            $("#containerEditar").find("#senha").val(data.senha);
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao carregar os dados dos funcionários");
+        },
+        beforeSend: function () {
+            $('#editar').addClass('active');
+            $('#listar').removeClass('active');
+            $('#adicionar').removeClass('active');
+            $('#containerEditar').show();
+            $('#form-adiciona-funcionario').hide()
+            $('#listagem-funcionarios').hide()
+        }
+    })
+}
+
+function deletarFuncionario(id) {
+    $.ajax({
+        type:"DELETE",
+        dataType:"json",
+        url:"/funcionario/" + id,
+        success: function (data) {
+            alert("Funcionário(a) " + data.nome + " excluído(a) com sucesso");
+            $(`#funcionario_id_${data.id}`).remove();
+        },
+        error: function (data) {
+            alert("Ops! algo deu errado ao deletar o funcionário");
+        },
+        beforeSend: function () {
+        }
+    })
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/Styles/hospedes.css}">
+        <title>Hóspedes</title>
+        <!-- COMO OS LINKS DEVEM SER USADOS CASO VÁ RODAR O PROJETO COM SPRING: -->
+    <!--<link rel="stylesheet" th:href="@{/Styles/hospedes.css}">-->
+    
+    <!-- src="../assets/icon-quartos.png LINK PRO ATRIBUTO SRC TEM ESSAS 2 MANEIRAS"
+    th:src="@{/assets/icon-reservas.png}" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+</style>
+</head>
+<body>
+    <aside class="menu comprimido">
+        <header>
+            <h3></h3>
+            <h4 id="nome-hospede"></h4>
+            <h5 id="momento-login"></h5>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/back/funcionarios" id="hospedes"><img th:src="@{/assets/icon-funcionarios.png}" title="Funcionários"></a></li>
+                <li><a href="/back/quartos" id="quartos"><img th:src="@{/assets/icon-quartos.png}" title="Quartos"></a></li>
+                <li><a href="/back/reservas" id="reservas"><img th:src="@{/assets/icon-reservas.png}" title="Reservas"></a></li>
+                <li><a href="/back" id="voltar"><img  th:src="@{/assets/icon-voltar.png}" title="Voltar"></a></li>
+            </ul>
+        </nav>
+        <div id="caixa-botao">
+            <button onclick="openOrCloseMenu()"><img th:src="@{/assets/icon-open-menu.png}"></button>
+        </div>
+    </aside>
+
+    <main>
+        <ul id="lista-hospedes">
+        </ul>
+        
+        <div id="div-formularios">
+            <form action="/ep-hospedes" id="form-pesquisa-hospede" method="get">
+                <input type="text" placeholder="nome do hospede">
+                <button type="submit"><img th:src="@{/assets/icon-search.png}" title="Pesquisar"></button>
+            </form>
+            
+            <form action="/ep-hospedes" id="form-hospede-selecionado" method="post">
+                <span id="id-hospede-selecionado">000</span>
+                
+                <fieldset id="fs-dados-gerais">
+                    <legend>Dados Gerais</legend>
+                    <input type="text" placeholder="Nome" name="nome" required minlength="3" maxlength="200">
+                    <input type="text" placeholder="CPF" name="cpf" maxlength="11" minlength="11" pattern="[0-9]+" title="Sem caracteres especiais" required>
+                    <input type="text" placeholder="Senha" name="senha" required minlength="3" maxlength="10">
+                </fieldset>
+                
+                <fieldset id="fs-endereco">
+                    <legend>Endereço</legend>
+                    <input type="text" placeholder="CEP" name="cep" maxlength="8" minlength="8" pattern="[0-9]+" title="Sem caracteres especiais" required>
+                    <input type="text" placeholder="Complemento" name="complemento">
+                    <input type="text" placeholder="Número" name="numero" minlength="1" maxlength="8" required>
+                </fieldset>
+
+                <fieldset id="fs-contato">
+                    <legend>Contato</legend>
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="text" placeholder="Telefone" name="telefone" minlength="10" maxlength="11" pattern="[0-9]+" title="Sem caracteres especiais | Insira o DDD" required>
+                </fieldset>
+
+                <div id="form-buttons">
+                    <button type="submit" id="btCreate">Cadastrar</button>
+                    <button type="submit" id="btUpdate">Atualizar</button>
+                    <a th:href="@{'/back/hospedes/excluir?id_Hospede='+${id}}" id="btExcluir">excluir</a>
+                </div>
+            </form>
+            
+        </div>
+    </main> 
+    
+    <script  th:src="@{/Scripts/geral.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let idHospede
+            $.ajax({
+            type: "GET", 
+            dataType: "json", 
+            url:"/api/hospedes",
+                success: function(arrayHospedes){
+                    let hospede = ""
+                    for (objeto of arrayHospedes) {
+                        hospede += `
+                        <li class="objetos">
+                            <span id="span-id">${objeto.id}</span>
+                            <span id="span-nome">${objeto.nome}</span>
+                            <span id="span-cpf">${objeto.cpf}</span>
+                            <span id="span-cep">${objeto.cep}</span>
+                            <span id="span-numero">${objeto.numero}</span>
+                            <span id="span-complemento">${objeto.complemento}</span>
+                            <span id="span-email">${objeto.email}</span>
+                            <span id="span-telefone">${objeto.telefone}</span>
+                            <span id="span-senha">${objeto.senha}</span>
+                        </li>`
+                    }
+                    $("#lista-hospedes").append(hospede)
+                    
+                    //para adicionar os valores dos cards ao formulario:
+                    document.querySelectorAll(".objetos").forEach(card =>{
+                        //pegando os elementos de "card" e setando em variaveis
+                        let id = card.firstElementChild.innerText
+                        let nome = card.firstElementChild.nextElementSibling.innerText
+                        let cpf = card.firstElementChild.nextElementSibling.nextElementSibling.innerText
+                        let cep = card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText
+                        let numero = card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText
+                        let complemento = card.lastElementChild.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+                        let email = card.lastElementChild.previousElementSibling.previousElementSibling.innerText
+                        let telefone = card.lastElementChild.previousElementSibling.innerText
+                        let senha = card.lastElementChild.innerText
+
+                        //quando clicar num card, as variaveis com os valores dele vão preencher os inputs do formulario
+                        card.addEventListener("click", ()=>{
+                            document.querySelector("#id-hospede-selecionado").innerText = id
+                            document.querySelector("input[name='nome']").value = nome
+                            document.querySelector("input[name='cpf']").value = cpf
+                            document.querySelector("input[name='cep']").value = cep
+                            document.querySelector("input[name='numero']").value = numero
+                            document.querySelector("input[name='complemento']").value = complemento
+                            document.querySelector("input[name='email']").value = email
+                            document.querySelector("input[name='telefone']").value = telefone
+                            document.querySelector("input[name='senha']").value = senha
+
+                            idHospede = id
+                        })
+                    })
+                },
+                error: function(){
+                    
+                },
+                beforeSend: function(){
+                    
+                }
+            })
+    </script>
+</body>
+</html>
