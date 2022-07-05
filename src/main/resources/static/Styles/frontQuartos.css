@@ -1,0 +1,87 @@
+:root{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+
+    --header-color: #FFD24C;
+    --body-bg: #F2F2F2;
+    --link-color: #184BB1;
+    --link-color-hover: #3183F7;
+    --paragraph-color: #092476;
+    --title-color: #092476;
+    --form-bg: #E6A341;
+    --form-text: #0653C4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+main{
+    display: grid;
+    background-color: var(--body-bg);
+    grid-template-columns: 80vw 1fr;
+    
+    height: 90vh;
+}
+
+h1{
+    font-size: 3rem;
+    height: 10vh;
+    color: var(--title-color);
+    text-align: center;
+    line-height: 10vh;
+    background-color: var(--header-color);
+}
+
+#section1{
+}
+
+#lista-quartos{
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.bloco-quarto{
+    margin-top: 4rem;
+    border-radius: .5rem;
+    width: 50vw;
+
+    border: 1px solid red;
+    margin-inline: auto;
+    margin-bottom: 8rem;
+
+    position: relative;
+}
+
+.bloco-quarto p{
+    font-size: 1.8rem;
+}
+
+#section2{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+#btReservar{
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--header-color);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.valor-quarto{
+    font-size: 2rem;
+
+    position: absolute;
+    right: 10rem;
+    bottom: 1.5rem;
+}

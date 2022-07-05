@@ -1,23 +1,21 @@
 package com.persistencia.MVC.model;
 
-import java.util.Date;
-import java.util.List;
+import java.util.Optional;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "reserva")
-
 public class Reserva {
 
     @Id
@@ -43,8 +41,19 @@ public class Reserva {
     @Column(nullable = false, length = 10)
     private int adultos;
 
-  
-public Float getValorTotal() {
+    @ManyToOne
+    @JoinColumn(name = "id_quarto")
+    private Quarto quarto;
+
+    public Quarto getQuarto() {
+        return quarto;
+    }
+
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
+    }
+
+    public Float getValorTotal() {
         return valorTotal;
     }
 
@@ -100,6 +109,9 @@ public Float getValorTotal() {
 
     public void setAdultos(int adultos) {
         this.adultos = adultos;
+    }
+
+    public void setQuarto(Optional<Quarto> findById) {
     }
 
 }

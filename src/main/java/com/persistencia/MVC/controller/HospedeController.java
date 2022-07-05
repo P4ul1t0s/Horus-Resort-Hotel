@@ -1,30 +1,41 @@
 package com.persistencia.MVC.controller;
 
-import com.persistencia.MVC.model.Hospede;
-import com.persistencia.MVC.repository.HospedeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.persistencia.MVC.model.Hospede;
+import com.persistencia.MVC.repository.HospedeRepository;
 
 @Controller
-@RequestMapping("/hospede")
 public class HospedeController {
 
-    @Autowired
-    HospedeRepository dao;
+    // @Autowired
+    // private AlunoServico alunoServico;
     
-    @PostMapping("/salvar")
-    public String salvar(Hospede x){
-        dao.save(x);
-        return "redirect:/hospede";
+    @Autowired
+    private HospedeRepository hospedeDao;
+
+    
+    @PostMapping("/ep-hospedes") 
+    public String cadastrar(Hospede hospede){
+        hospedeDao.save(hospede);
+        return "redirect:/back/hospedes";
     }
 
-    @GetMapping
-    public String formHospede(){
-        return "hospede";
+    public Hospede getHospedeById(Integer id_Hospede){
+        return hospedeDao.findById(id_Hospede).get();
+    }
+
+    @GetMapping("/back/hospedes/excluir?")
+    public String excluir(@RequestParam Integer id_Hospede){
+        Hospede hospede = getHospedeById(id_Hospede);
+        hospedeDao.delete(hospede);
+        return "redirect:/back/hospedes";
     }
 
 }
